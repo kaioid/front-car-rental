@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CarCreateComponent } from './car-create/car-create.component';
-import { CarDetailsComponent } from './car-details/car-details.component';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarUpdateComponent } from './car-update/car-update.component';
-import { ClientCreateComponent } from './client-create/client-create.component';
-import { ClientDetailsComponent } from './client-details/client-details.component';
-import { ClientListComponent } from './client-list/client-list.component';
-import { ClientUpdateComponent } from './client-update/client-update.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { CarCreateComponent } from './components/car-create/car-create.component';
+import { CarDetailsComponent } from './components/car-details/car-details.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ClientCreateComponent } from './components/client-create/client-create.component';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
+import { ClientListComponent } from './components/client-list/client-list.component';
+import { ClientUpdateComponent } from './components/client-update/client-update.component';
 
 
 const routes: Routes = [

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Vehicle } from '../car';
-import { CarService } from '../car.service';
+import { Vehicle } from '../../models/car';
+import { CarService } from '../../services/car.service';
 
 @Component({
   selector: 'app-car-create',
