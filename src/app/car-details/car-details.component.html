@@ -1,0 +1,15 @@
+<h2>Car Details</h2> 
+
+<hr/>
+<div *ngIf="vehicle">
+  <div>
+    <label><b>Modelo</b></label> {{vehicle.model}}
+  </div>
+  <div>
+    <label><b>Categoria</b></label> {{vehicle.category}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Voltar para lista de carros</button><br>
