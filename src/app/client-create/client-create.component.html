@@ -1,0 +1,45 @@
+<h3>Cadastrar novo cliente</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="client.cpf" name="name">
+    </div>
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="client.email" name="email">
+    </div>
+    <div class="form-group">
+        <label for="cep">CEP</label>
+        <input type="text" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep">
+    </div>
+    <div class="form-group">
+        <label for="logradouro">Logradouro</label>
+        <input type="text" class="form-control" id="logradouro" required [(ngModel)]="client.logradouro" name="logradouro">
+    </div>
+    <div class="form-group">
+        <label for="numero">Número</label>
+        <input type="text" class="form-control" id="numero" required [(ngModel)]="client.numero" name="numero">
+    </div>
+    <div class="form-group">
+        <label for="bairro">Bairro</label>
+        <input type="text" class="form-control" id="bairro" required [(ngModel)]="client.bairro" name="bairro">
+    </div>
+    <div class="form-group">
+        <label for="localidade">Localidade</label>
+        <input type="text" class="form-control" id="localidade" required [(ngModel)]="client.localidade" name="localidade">
+    </div>
+    <div class="form-group">
+        <label for="uf">UF</label>
+        <input type="text" class="form-control" id="uf" required [(ngModel)]="client.uf" name="uf">
+    </div>
+    <button type="submit" class="btn btn-success">Concluir</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newClient()">Concluir</button> -->
+</div>

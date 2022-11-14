@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista de Carros</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Nº</th>
+            <th>Bairro</th>
+            <th>Localidade</th>
+            <th>UF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients | async">
+            <td>{{client.name}}</td>
+            <td>{{client.cpf}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.cep}}</td>
+            <td>{{client.logradouro}}</td>
+            <td>{{client.numero}}</td>
+            <td>{{client.bairro}}</td>
+            <td>{{client.localidade}}</td>
+            <td>{{client.uf}}</td>
+            <td><button (click)="deleteClient(client.id)" class="btn btn-danger">Excluir</button>
+              <button (click)="updateClient(client.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+                <button (click)="clientDetails(client.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

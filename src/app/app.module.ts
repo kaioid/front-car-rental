@@ -9,6 +9,10 @@ import { CarUpdateComponent } from './car-update/car-update.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ClientCreateComponent } from './client-create/client-create.component';
+import { ClientUpdateComponent } from './client-update/client-update.component';
+import { ClientDetailsComponent } from './client-details/client-details.component';
+import { ClientListComponent } from './client-list/client-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FormsModule } from '@angular/forms';
     CarListComponent,
     CarCreateComponent,
     CarUpdateComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    ClientCreateComponent,
+    ClientUpdateComponent,
+    ClientDetailsComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,

@@ -31,11 +31,11 @@ export class CarListComponent implements OnInit {
   }
 
   carDetails(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['vehicles/', id]);
   }
 
   updateCar(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['vehicles/update', id]);
   }
 
 }
