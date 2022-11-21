@@ -14,10 +14,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let rental of rentals | async">
-            <td>{{rental.client.name}}</td>
+            <td><a href="clients/{{rental.client.id}}">{{rental.client.name}}</a></td>
             <td>{{rental.start}}</td>
             <td>{{rental.finish}}</td>
-            <td>{{rental.vehicle.model}}</td>
+            <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
           </tr>
         </tbody>
       </table>
