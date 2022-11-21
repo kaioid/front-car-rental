@@ -1,0 +1,25 @@
+<h3>Locar carro</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="start">Data de locação</label>
+        <input type="date" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
+      </div>
+      <div class="form-group">
+        <label for="finish">Data de devolução</label>
+        <input type="date" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
+      </div>
+      <div class="form-group">
+        <label for="client">ID do Cliente</label>
+        <input type="number" class="form-control" id="client" required [(ngModel)]="rental.client" name="client">
+      </div>
+      <div class="form-group">
+        <label for="vehicle">ID do Carro</label>
+        <input type="number" class="form-control" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
+      </div>
+      <button type="submit" class="btn btn-success">Concluir</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <button class="btn btn-success" (click)="newRental()">Concluir</button> -->
+  </div>

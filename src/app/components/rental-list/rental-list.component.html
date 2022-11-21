@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Lista de Carros Alugados</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Data de Locação</th>
+            <th>Data de Devolução</th>
+            <th>Carro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rental of rentals | async">
+            <td>{{rental.client.name}}</td>
+            <td>{{rental.start}}</td>
+            <td>{{rental.finish}}</td>
+            <td>{{rental.vehicle.model}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
