@@ -1,0 +1,22 @@
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="basicPayment">Pagamento Base</label>
+      <input type="number" class="form-control" id="basicPayment" required [(ngModel)]="invoice.basicPayment" name="basicPayment">
+    </div>
+    <div class="form-group">
+        <label for="tax">Taxa de multa</label>
+        <input type="number" class="form-control" id="tax" required [(ngModel)]="invoice.tax" name="basicPayment">
+      </div>
+      <div class="form-group">
+        <label for="carRental">Locação</label>
+        <select class="custom-select" id="vehicle" required [(ngModel)]="invoice.carRental" name="vehicle">
+          <option  *ngFor="let rental of rentals | async" [ngValue]=rental.id>{{rental.client.name}}</option>
+        </select>
+      </div>
+    <button type="submit" class="btn btn-success">Concluir</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newInvoice()">Concluir</button> -->
+</div>

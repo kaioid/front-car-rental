@@ -16,6 +16,7 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
 import { RentalListComponent } from './components/rental-list/rental-list.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
+import { InvoiceCreateComponent } from './components/invoice-create/invoice-create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RentalUpdateComponent } from './components/rental-update/rental-update.
     ClientListComponent,
     RentalListComponent,
     RentalCreateComponent,
-    RentalUpdateComponent
+    RentalUpdateComponent,
+    InvoiceCreateComponent
   ],
   imports: [
     BrowserModule,
