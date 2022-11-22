@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { Vehicle } from 'src/app/models/car';
+import { Client } from 'src/app/models/client';
+import { Rental } from 'src/app/models/rental';
+import { CarService } from 'src/app/services/car.service';
+import { ClientService } from 'src/app/services/client.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-rental-update',
@@ -7,9 +15,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalUpdateComponent implements OnInit {
 
-  constructor() { }
+  clients: Observable<Client[]>;
+  vehicles: Observable<Vehicle[]>;
+  
+  id: number;
+  rental: Rental;
+  submitted = false;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private clientService: ClientService,private carService: CarService, private router: Router, private rentalService: RentalService) { }
+
+  ngOnInit(){
+    this.reloadData();
+    this.rental = new Rental();
+    this.id = this.route.snapshot.params['id'];
+    this.rentalService.getRental(this.id).subscribe(data =>{
+      console.log(data);
+      this.rental = data;
+    },
+    error => console.log(error));
+  }
+
+  reloadData(){
+    this.clients = this.clientService.getClientList();
+    this.vehicles = this.carService.getCarList();
+  }
+
+
+  rentalUpdate(){
+    this.rentalService.updateRental(this.id, this.rental).subscribe(data => console.log(data), error => console.log(error));
+  }
+
+  onSubmit(){
+    this.rentalUpdate();
+  }
+
+  gotoList(){
+    this.router.navigate(['/car-rentals'])
   }
 
 }

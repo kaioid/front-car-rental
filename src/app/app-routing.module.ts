@@ -11,6 +11,7 @@ import { ClientListComponent } from './components/client-list/client-list.compon
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalListComponent } from './components/rental-list/rental-list.component';
+import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'clients/update/:id', component: ClientUpdateComponent },
   { path: 'clients/:id', component: ClientDetailsComponent },
   { path: 'car-rentals', component: RentalListComponent },
-  { path: 'car-rentals/add', component: RentalCreateComponent}
+  { path: 'car-rentals/add', component: RentalCreateComponent},
+  { path: 'car-rentals/update/:id', component: RentalUpdateComponent }
   
 ];
 

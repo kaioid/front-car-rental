@@ -1,1 +1,30 @@
-<p>rental-update works!</p>
+<h3>Editar locação</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="start">Data de locação</label>
+        <input type="date" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
+      </div>
+      <div class="form-group">
+        <label for="finish">Data de devolução</label>
+        <input type="date" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
+      </div>
+      <div class="form-group">
+        <label for="client">Cliente</label>
+        <select class="custom-select" id="client" required [(ngModel)]="rental.client" name="client">
+          <option *ngFor="let client of clients | async" [ngValue]=client.id>{{client.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="vehicle">Carro</label>
+        <select class="custom-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
+          <option  *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Concluir</button>
+    </form>
+  </div>
+  
+  <div [hidden]="!submitted">
+    <button class="btn btn-success">Concluir</button> -->
+  </div>

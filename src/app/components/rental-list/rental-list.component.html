@@ -18,6 +18,9 @@
             <td>{{rental.start}}</td>
             <td>{{rental.finish}}</td>
             <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
+            <td><button (click)="deleteRental(rental.id)" class="btn btn-danger">Excluir</button>
+              <button (click)="updateRental(rental.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+            </td>
           </tr>
         </tbody>
       </table>

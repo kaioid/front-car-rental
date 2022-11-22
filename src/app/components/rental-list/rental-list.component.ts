@@ -23,4 +23,16 @@ export class RentalListComponent implements OnInit {
     this.rentals = this.rentalService.getRentalList();
   }
 
+  deleteRental(id: number){
+    this.rentalService.deleteRental(id).subscribe(data=>{
+      console.log(data)
+      this.reloadData();
+    },
+    error => console.log(error));
+  }
+
+  updateRental(id: number){
+    this.router.navigate(['car-rentals/update', id]);
+  }
+
 }
