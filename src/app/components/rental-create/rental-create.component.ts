@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Vehicle } from 'src/app/models/car';
+import { Client } from 'src/app/models/client';
 import { Rental } from 'src/app/models/rental';
+import { CarService } from 'src/app/services/car.service';
+import { ClientService } from 'src/app/services/client.service';
 import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
@@ -10,11 +15,20 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalCreateComponent implements OnInit {
 
+  clients: Observable<Client[]>;
+  vehicles: Observable<Vehicle[]>;
+
   rental: Rental = new Rental();
   submitted = false;
-  constructor(private rentalService: RentalService, private router: Router) { }
+  constructor(private rentalService: RentalService, private clientService: ClientService,private carService: CarService, private router: Router) { }
 
   ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.clients = this.clientService.getClientList();
+    this.vehicles = this.carService.getCarList();
   }
 
   newRental(): void {

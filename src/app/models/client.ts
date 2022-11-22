@@ -5,6 +5,7 @@ export class Client {
     email: string;
     cep: string;
     logradouro: string;
+    complemento: string;
     numero: string;
     bairro: string;
     localidade: string;
