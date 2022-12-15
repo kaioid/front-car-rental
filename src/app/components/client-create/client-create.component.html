@@ -1,47 +1,51 @@
 <h3>Cadastrar novo cliente</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
     <div class="form-group">
       <div class="form-group">
-        <label for="cpf">CPF</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="client.cpf" name="name">
+        <label for="cpf">CPF *</label>
+        <input type="text" class="form-control" id="cpf" required [(ngModel)]="client.cpf" name="cpf" minlength="11" #cpf="ngModel">
+        <div *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
     </div>
-      <label for="name">Nome</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name">
-    </div>
-    <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" class="form-control" id="email" required [(ngModel)]="client.email" name="email">
+      <label for="name">Nome *</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" #name="ngModel">
+      <div *ngIf="name.invalid && name.touched">Informe um nome!</div>
     </div>
     <div class="form-group">
-        <label for="cep">CEP</label>
-        <input type="text" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep">
+        <label for="email">E-mail *</label>
+        <input type="email" class="form-control" id="email" required email [(ngModel)]="client.email" name="email" #email="ngModel">
+        <div *ngIf="email.invalid && email.touched">Informe um E-mail!</div>
+    </div>
+    <div class="form-group">
+        <label for="cep">CEP *</label>
+        <input type="text" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep" minlength="8" #cep="ngModel" (blur)="consultaCEP($event.target.value, usuarioForm)">
+        <div *ngIf="cep.invalid && cep.touched">Informe um CEP válido!</div>
     </div>
     <div class="form-group">
         <label for="logradouro">Logradouro</label>
-        <input type="text" class="form-control" id="logradouro" required [(ngModel)]="client.logradouro" name="logradouro">
+        <input type="text" class="form-control" id="logradouro"  [(ngModel)]="client.logradouro" name="logradouro">
     </div>
     <div class="form-group">
       <label for="complemento">Complemento</label>
-      <input type="text" class="form-control" id="complemento" required [(ngModel)]="client.complemento" name="complemento">
+      <input type="text" class="form-control" id="complemento"  [(ngModel)]="client.complemento" name="complemento">
   </div>
     <div class="form-group">
-        <label for="numero">Número</label>
-        <input type="text" class="form-control" id="numero" required [(ngModel)]="client.numero" name="numero">
+        <label for="numero">Nº</label>
+        <input type="text" class="form-control" id="numero"  [(ngModel)]="client.numero" name="numero">
     </div>
     <div class="form-group">
         <label for="bairro">Bairro</label>
-        <input type="text" class="form-control" id="bairro" required [(ngModel)]="client.bairro" name="bairro">
+        <input type="text" class="form-control" id="bairro"  [(ngModel)]="client.bairro" name="bairro">
     </div>
     <div class="form-group">
         <label for="localidade">Localidade</label>
-        <input type="text" class="form-control" id="localidade" required [(ngModel)]="client.localidade" name="localidade">
+        <input type="text" class="form-control" id="localidade"  [(ngModel)]="client.localidade" name="localidade">
     </div>
     <div class="form-group">
         <label for="uf">UF</label>
-        <input type="text" class="form-control" id="uf" required [(ngModel)]="client.uf" name="uf">
+        <input type="text" class="form-control" id="uf"  [(ngModel)]="client.uf" name="uf">
     </div>
-    <button type="submit" class="btn btn-success">Concluir</button>
+    <button type="submit" class="btn btn-success" [disabled]="!usuarioForm.valid" >Concluir</button>
   </form>
 </div>
 <div [hidden]="!submitted">

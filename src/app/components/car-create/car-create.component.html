@@ -1,21 +1,31 @@
 <h3>Adicionar novo carro</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form autocomplete="off" #carForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Modelo</label>
-      <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model">
+      <label for="name">Modelo *</label>
+      <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model" #model="ngModel">
+      <div *ngIf="model.invalid && model.touched">Informe um modelo!</div> 
     </div>
     <div class="form-group">
-      <label for="name">Categoria</label><br>
-      <select class="custom-select" id="category" required [(ngModel)]="vehicle.category" name="category">
+      <label for="name">Categoria *</label><br>
+      <select class="custom-select" id="category" required [(ngModel)]="vehicle.category" name="category" value="" #category="ngModel">
         <option value="HATCH">Hatch</option>
         <option value="SEDAN">Sedan</option>
         <option value="USV">USV</option>
         <option value="CAMIONETE">Camionete</option>
         <option value="LUXO">Luxo</option>
       </select>
+      <div *ngIf="category.invalid && category.touched">Informe uma categoria!</div>
     </div>
-    <button type="submit" class="btn btn-success">Concluir</button>
+    <div class="form-group">
+      <label for="pricePerDay">Preço por diária *</label>
+      <input type="number" class="form-control" id="pricePerDay" required [(ngModel)]="vehicle.pricePerDay" name="pricePerDay">
+    </div>
+    <div class="form-group">
+      <label for="pricePerHour">Preço por hora *</label>
+      <input type="number" class="form-control" id="pricePerHour" required [(ngModel)]="vehicle.pricePerHour" name="pricePerHour">
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!carForm.valid">Concluir</button>
   </form>
 </div>
 <div [hidden]="!submitted">

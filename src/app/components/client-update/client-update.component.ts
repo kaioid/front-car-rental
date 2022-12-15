@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CepService } from 'src/app/services/cep.service';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -14,7 +15,7 @@ export class ClientUpdateComponent implements OnInit {
   client: Client;
   submitted = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService, private cepService: CepService) { }
 
   ngOnInit(){
     this.client = new Client();
@@ -32,7 +33,7 @@ export class ClientUpdateComponent implements OnInit {
     this.gotoList();
   }
   
-  onSubmit(){
+  onSubmit(usuarioForm){
     this.clientUpdate();
   }
 
@@ -40,4 +41,23 @@ export class ClientUpdateComponent implements OnInit {
     this.router.navigate(['/clients'])
   }
 
+  consultaCEP(cep, form) {
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != null && cep !== '') {
+      this.cepService.consultaCEP(cep)
+      .subscribe(dados => this.populaDados(dados, form));
+    }
+  }
+
+  populaDados(dados: any, formulario){
+    formulario.form.patchValue({
+      logradouro: dados.logradouro,
+      complemento: dados.complemento,
+      numero: dados.numero,
+      bairro: dados.bairro,
+      localidade: dados.localidade,
+      uf: dados.uf
+    });
+  }
 }
