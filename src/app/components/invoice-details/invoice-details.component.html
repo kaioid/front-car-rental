@@ -1,0 +1,9 @@
+<div *ngIf="invoice">
+    <div>
+        <label><b>Pagamento básico</b></label> {{invoice.basicPayment}}
+    </div>
+    <div>
+        <label><b>Multa</b></label> {{invoice.tax}}
+    </div>
+</div>
+<button (click)="list()" class="btn btn-primary">Voltar</button><br>

@@ -47,6 +47,7 @@ export class RentalUpdateComponent implements OnInit {
 
   onSubmit(){
     this.rentalUpdate();
+    this.gotoList();
   }
 
   gotoList(){

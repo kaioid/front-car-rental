@@ -1,0 +1,25 @@
+<div class="panel-body">
+    <div class="panel-heading">
+        <h3>Faturas</h3>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Carro Alugado</th>
+                <th>Pagamento básico</th>
+                <th>Multa</th>
+                <th>Valor total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rental of rentals | async">
+                <td>{{ rental.client.name }}</td>
+                <td>{{ rental.vehicle.model }}</td>
+                <td>{{ rental.invoice.basicPayment }}</td>
+                <td>{{ rental.invoice.tax }}</td>
+                <td>{{ rental.invoice.totalPayment }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

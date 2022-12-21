@@ -16,7 +16,8 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
 import { RentalListComponent } from './components/rental-list/rental-list.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
-import { InvoiceCreateComponent } from './components/invoice-create/invoice-create.component';
+import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
+import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InvoiceCreateComponent } from './components/invoice-create/invoice-crea
     RentalListComponent,
     RentalCreateComponent,
     RentalUpdateComponent,
-    InvoiceCreateComponent
+    InvoiceListComponent,
+    InvoiceDetailsComponent
   ],
   imports: [
     BrowserModule,
