@@ -1,7 +1,8 @@
 export class Rental {
     id: number;
-    start: string;
-    finish: string;
+    start: Date;
+    finish: Date;
     client: number;
     vehicle: number;
+    dateReturn: Date;
 }
