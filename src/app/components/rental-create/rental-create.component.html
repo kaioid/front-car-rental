@@ -1,13 +1,14 @@
 <h3>Locar carro</h3>
+
 <div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
+    <form #rentalform="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="start">Data de locação</label>
-        <input type="date" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
+        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
       </div>
       <div class="form-group">
         <label for="finish">Data de devolução</label>
-        <input type="date" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
+        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
       </div>
       <div class="form-group">
         <label for="client">Cliente</label>
@@ -20,6 +21,10 @@
         <select class="custom-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
           <option  *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label for="dateReturn">Data de devolução</label>
+        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dateReturn" name="dateReturn">
       </div>
       <button type="submit" class="btn btn-success">Concluir</button>
     </form>

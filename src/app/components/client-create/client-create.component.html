@@ -5,21 +5,23 @@
       <div class="form-group">
         <label for="cpf">CPF *</label>
         <input type="text" class="form-control" id="cpf" required [(ngModel)]="client.cpf" name="cpf" minlength="11" #cpf="ngModel">
-        <div *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
-    </div>
-      <label for="name">Nome *</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" #name="ngModel">
-      <div *ngIf="name.invalid && name.touched">Informe um nome!</div>
+        <div class="alert alert-danger" role="alert" *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
+      </div>
+      <div class="form-group">
+        <label for="name">Nome *</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" #name="ngModel">
+        <div class="alert alert-danger" role="alert" *ngIf="name.invalid && name.touched">Informe um nome!</div>
+      </div>
     </div>
     <div class="form-group">
         <label for="email">E-mail *</label>
         <input type="email" class="form-control" id="email" required email [(ngModel)]="client.email" name="email" #email="ngModel">
-        <div *ngIf="email.invalid && email.touched">Informe um E-mail!</div>
+        <div class="alert alert-danger" role="alert" *ngIf="email.invalid && email.touched">Informe um E-mail!</div>
     </div>
     <div class="form-group">
         <label for="cep">CEP *</label>
         <input type="text" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep" minlength="8" #cep="ngModel" (blur)="consultaCEP($event.target.value, usuarioForm)">
-        <div *ngIf="cep.invalid && cep.touched">Informe um CEP válido!</div>
+        <div class="alert alert-danger" role="alert" *ngIf="cep.invalid && cep.touched">Informe um CEP válido!</div>
     </div>
     <div class="form-group">
         <label for="logradouro">Logradouro</label>
