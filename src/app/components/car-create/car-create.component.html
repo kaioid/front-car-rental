@@ -4,18 +4,18 @@
     <div class="form-group">
       <label for="name">Modelo *</label>
       <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model" #model="ngModel">
-      <div *ngIf="model.invalid && model.touched">Informe um modelo!</div> 
+      <div class="alert alert-danger" role="alert" *ngIf="model.invalid && model.touched">Informe um modelo!</div> 
     </div>
     <div class="form-group">
       <label for="name">Categoria *</label><br>
       <select class="custom-select" id="category" required [(ngModel)]="vehicle.category" name="category" value="" #category="ngModel">
         <option value="HATCH">Hatch</option>
         <option value="SEDAN">Sedan</option>
-        <option value="USV">USV</option>
+        <option value="SUV">SUV</option>
         <option value="CAMIONETE">Camionete</option>
         <option value="LUXO">Luxo</option>
       </select>
-      <div *ngIf="category.invalid && category.touched">Informe uma categoria!</div>
+      <div class="alert alert-danger" role="alert" *ngIf="category.invalid && category.touched">Informe uma categoria!</div>
     </div>
     <div class="form-group">
       <label for="pricePerDay">Preço por diária *</label>
