@@ -25,9 +25,9 @@ const routes: Routes = [
   { path: 'clients/add', component: ClientCreateComponent },
   { path: 'clients/update/:id', component: ClientUpdateComponent },
   { path: 'clients/:id', component: ClientDetailsComponent },
-  { path: 'car-rentals', component: RentalListComponent },
-  { path: 'car-rentals/add', component: RentalCreateComponent},
-  { path: 'car-rentals/update/:id', component: RentalUpdateComponent },
+  { path: 'carsrental', component: RentalListComponent },
+  { path: 'carsrental/add', component: RentalCreateComponent},
+  { path: 'carsrental/update/:id', component: RentalUpdateComponent },
   { path: 'invoices', component: InvoiceListComponent }
   
 ];

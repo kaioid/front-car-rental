@@ -32,7 +32,7 @@ export class RentalListComponent implements OnInit {
   }
 
   updateRental(id: number){
-    this.router.navigate(['car-rentals/update', id]);
+    this.router.navigate(['carsrental/update', id]);
   }
 
 }

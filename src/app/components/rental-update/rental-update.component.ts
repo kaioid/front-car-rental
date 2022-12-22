@@ -15,9 +15,7 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalUpdateComponent implements OnInit {
 
-  clients: Observable<Client[]>;
-  vehicles: Observable<Vehicle[]>;
-  
+  rentals: Observable<Rental[]>;
   id: number;
   rental: Rental;
   submitted = false;
@@ -36,8 +34,7 @@ export class RentalUpdateComponent implements OnInit {
   }
 
   reloadData(){
-    this.clients = this.clientService.getClientList();
-    this.vehicles = this.carService.getCarList();
+    this.rentals = this.rentalService.getRentalList();
   }
 
 

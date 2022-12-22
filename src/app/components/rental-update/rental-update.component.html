@@ -1,28 +1,25 @@
 <h3>Editar locação</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Carro</th>
+      <th>Data de Locação</th>
+      <th>Data de Devolução prevista</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let ren of rentals | async">
+    <tr *ngIf="ren.id == rental.id">
+      <td><a href="clients/{{ren.client.id}}">{{ren.client.name}}</a></td>
+      <td><a href="vehicles/{{ren.vehicle.id}}">{{ren.vehicle.model}}</a></td>
+      <td>{{ren.start | date: 'dd/MM/yyyy HH:mm'}}</td>
+      <td>{{ren.finish | date: 'dd/MM/yyyy HH:mm'}}</td>
+    </tr>
+</table>  
 <div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="start">Data de locação</label>
-        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
-      </div>
-      <div class="form-group">
-        <label for="finish">Data de devolução prevista</label>
-        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
-      </div>
-      <div class="form-group">
-        <label for="client">Cliente</label>
-        <select class="custom-select" id="client" required [(ngModel)]="rental.client" name="client">
-          <option *ngFor="let client of clients | async" [ngValue]=client.id>{{client.name}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="vehicle">Carro</label>
-        <select class="custom-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
-          <option  *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="dateReturn">Data de devolução</label>
+        <label for="dateReturn">Sinalizar Devolução</label>
         <input type="datetime-local" class="form-control" id="dateReturn" [(ngModel)]="rental.dateReturn" name="dateReturn">
       </div>
       <button type="submit" class="btn btn-success">Concluir</button>
