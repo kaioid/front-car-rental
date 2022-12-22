@@ -9,6 +9,7 @@ import { ClientCreateComponent } from './components/client-create/client-create.
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
+import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalListComponent } from './components/rental-list/rental-list.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'carsrental', component: RentalListComponent },
   { path: 'carsrental/add', component: RentalCreateComponent},
   { path: 'carsrental/update/:id', component: RentalUpdateComponent },
-  { path: 'invoices', component: InvoiceListComponent }
+  { path: 'invoices', component: InvoiceListComponent },
+  { path: 'invoices/:id', component: InvoiceDetailsComponent }
   
 ];
 

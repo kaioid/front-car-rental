@@ -6,6 +6,7 @@
       <th>Carro</th>
       <th>Data de Locação</th>
       <th>Data de Devolução prevista</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody *ngFor="let ren of rentals | async">
@@ -14,15 +15,16 @@
       <td><a href="vehicles/{{ren.vehicle.id}}">{{ren.vehicle.model}}</a></td>
       <td>{{ren.start | date: 'dd/MM/yyyy HH:mm'}}</td>
       <td>{{ren.finish | date: 'dd/MM/yyyy HH:mm'}}</td>
+      <td><button (click)="gotoInvoice(rental.id)" class="btn btn-info" [disabled]="!f.valid">Ir para fatura</button></td>
     </tr>
 </table>  
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="dateReturn">Sinalizar Devolução</label>
-        <input type="datetime-local" class="form-control" id="dateReturn" [(ngModel)]="rental.dateReturn" name="dateReturn">
+        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dateReturn" name="dateReturn">
       </div>
-      <button type="submit" class="btn btn-success">Concluir</button>
+      <button type="submit" class="btn btn-success">Concluir</button> 
     </form>
   </div>
   

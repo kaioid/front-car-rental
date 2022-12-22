@@ -44,11 +44,10 @@ export class RentalUpdateComponent implements OnInit {
 
   onSubmit(){
     this.rentalUpdate();
-    this.gotoList();
   }
 
-  gotoList(){
-    this.router.navigate(['/car-rentals'])
+  gotoInvoice(id){
+    this.router.navigate([`/invoices/${id}`])
   }
 
 }
