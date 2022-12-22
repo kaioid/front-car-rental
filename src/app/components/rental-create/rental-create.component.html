@@ -1,7 +1,7 @@
 <h3>Locar carro</h3>
-
+{{rf.value|json}}
 <div [hidden]="submitted" style="width: 400px;">
-    <form #rentalform="ngForm" (ngSubmit)="onSubmit()">
+    <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
       <div class="form-group">
         <label for="start">Data de locação</label>
         <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
@@ -24,9 +24,9 @@
       </div>
       <div class="form-group">
         <label for="dateReturn">Data de devolução</label>
-        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dateReturn" name="dateReturn">
+        <input type="datetime-local" class="form-control" id="dateReturn" [(ngModel)]="rental.dateReturn" name="dateReturn">
       </div>
-      <button type="submit" class="btn btn-success">Concluir</button>
+      <button type="submit" class="btn btn-success" (click)="fieldFormat(rf)">Concluir</button>
     </form>
   </div>
   <div [hidden]="!submitted">

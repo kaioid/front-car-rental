@@ -42,13 +42,26 @@ export class RentalCreateComponent implements OnInit {
     this.gotoList();
   }
 
-  onSubmit(){
+  onSubmit(rf){
     this.submitted = true;
     this.save();
   }
 
   gotoList(){
     this.router.navigate(['/car-rentals'])
+  }
+
+  fieldFormat(rf){
+    let aux = rf.value
+    console.log(aux)
+    rf.form.patchValue({
+      client: {
+        "id": aux.client
+      },
+      vehicle: {
+        "id": aux.vehicle
+      }
+    })
   }
 
 }
