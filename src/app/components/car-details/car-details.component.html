@@ -1,21 +1,13 @@
-<h3>Car Details</h3> 
+<h3>Detalhes do veículo</h3> 
 
 <hr/>
-<div *ngIf="vehicle">
-  <div>
-    <label><b>Modelo:</b></label> {{vehicle.model}}
-  </div>
-  <div>
-    <label><b>Categoria:</b></label> {{vehicle.category}}
-  </div>
-  <div>
-    <label><b>Preço diária:</b></label> R${{vehicle.pricePerDay}}
-  </div>
-  <div>
-    <label><b>Preço hora:</b></label> R${{vehicle.pricePerHour}}
+<div class="" *ngIf="vehicle">
+  <div class="card" style="width: 18rem;">
+    <img width="110px" height="110px" src="assets/images/icons/{{vehicle.category}}.svg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{vehicle.model}}</h5>
+      <p class="card-text">Veículo da categoria {{vehicle.category}} com diária de {{vehicle.pricePerDay | currency: 'BRL'}} e valor por fração de hora de {{vehicle.pricePerHour | currency: 'BRL'}}</p>
+      <button (click)="list()" class="btn btn-primary">Voltar</button>
+    </div>
   </div>
 </div>
-
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Voltar para lista de carros</button><br>

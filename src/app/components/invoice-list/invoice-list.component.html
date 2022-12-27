@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th>Cliente</th>
-                <th>Carro Alugado</th>
+                <th>Veículo Alugado</th>
                 <th>Pagamento básico</th>
                 <th>Multa</th>
                 <th>Valor total</th>
@@ -17,9 +17,9 @@
             <tr *ngIf="rental.invoice">
                 <td>{{ rental.client.name }}</td>
                 <td>{{ rental.vehicle.model }}</td>
-                <td>{{ rental.invoice.basicPayment }}</td>
-                <td>{{ rental.invoice.tax }}</td>
-                <td>{{ rental.invoice.totalPayment }}</td>
+                <td>{{ rental.invoice.basicPayment | currency: 'BRL' }}</td>
+                <td>{{ rental.invoice.tax | currency: 'BRL' }}</td>
+                <td>{{ rental.invoice.totalPayment | currency: 'BRL' }}</td>
                 <td>
                     <a href="invoices/{{rental.invoice.id}}">
                         <img width="22px"src="assets/images/icons/find.svg">

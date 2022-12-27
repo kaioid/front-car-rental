@@ -1,12 +1,12 @@
 <div *ngIf="invoice">
     <div>
-        <label><b>Pagamento básico</b></label> {{invoice.basicPayment}}
+        <label><b>Pagamento básico</b></label> {{invoice.basicPayment | currency: 'BRL'}}
     </div>
     <div>
-        <label><b>Multa</b></label> {{invoice.tax}}
+        <label><b>Multa</b></label> {{invoice.tax | currency: 'BRL'}}
     </div>
     <div>
-        <label><b>Valor total</b></label> {{invoice.totalPayment}}
+        <label><b>Valor total</b></label> {{invoice.totalPayment | currency: 'BRL'}}
     </div>
 </div>
 <button (click)="list()" class="btn btn-primary">Voltar</button><br>
