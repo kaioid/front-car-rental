@@ -1,30 +1,37 @@
 <h3>Locar carro</h3>
-{{rf.value|json}}
-<div [hidden]="submitted" style="width: 400px;">
-    <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
-      <div class="form-group">
-        <label for="start">Data de locação</label>
+
+<div [hidden]="submitted">
+  <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="start" class="form-label">Data de locação: </label>
         <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
       </div>
-      <div class="form-group">
-        <label for="finish">Data de devolução</label>
-        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.finish" name="finish">
+      <div class="col-md-3">
+        <label for="finish" class="form-label">Data de devolução prevista: </label>
+        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.finish"
+          name="finish">
       </div>
-      <div class="form-group">
-        <label for="client">Cliente</label>
-        <select class="custom-select" id="client" required [(ngModel)]="rental.client" name="client">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="client" class="form-label">Cliente:</label>
+        <select class="form-select" id="client" required [(ngModel)]="rental.client" name="client">
           <option *ngFor="let client of clients | async" [ngValue]=client.id>{{client.name}}</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="vehicle">Carro</label>
-        <select class="custom-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
-          <option  *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="vehicle" class="form-label">Carro:</label>
+        <select class="form-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
+          <option *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-success" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
-    </form>
-  </div>
-  <div [hidden]="!submitted">
-    <button class="btn btn-success" (click)="newRental()">Concluir</button> -->
-  </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!rf.valid" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newRental()">Concluir</button> -->
+</div>
