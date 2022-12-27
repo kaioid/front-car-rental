@@ -39,7 +39,7 @@ export class RentalCreateComponent implements OnInit {
   save() {
     this.rentalService.createRental(this.rental).subscribe(data=>console.log(data), error => console.log(error));
     this.rental = new Rental();
-    this.gotoList();
+
   }
 
   onSubmit(rf){
@@ -48,12 +48,11 @@ export class RentalCreateComponent implements OnInit {
   }
 
   gotoList(){
-    this.router.navigate(['/car-rentals'])
+    this.router.navigate(['/rentals'])
   }
 
   fieldFormat(rf){
     let aux = rf.value
-    console.log(aux)
     rf.form.patchValue({
       client: {
         "id": aux.client
@@ -62,6 +61,21 @@ export class RentalCreateComponent implements OnInit {
         "id": aux.vehicle
       }
     })
+  }
+
+  dateFormat(rf){
+    let aux = rf.value
+    let data1 = new Date(aux.start)
+    let data2 = new Date(aux.finish)
+
+    let formatStart = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data1)
+    let formatFinish = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data2)
+
+    rf.form.patchValue({
+      start: formatStart,
+      finish: formatFinish
+    })
+    
   }
 
 }

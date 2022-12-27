@@ -22,7 +22,7 @@
           <option  *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-success" (click)="fieldFormat(rf)">Concluir</button>
+      <button type="submit" class="btn btn-success" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
     </form>
   </div>
   <div [hidden]="!submitted">

@@ -13,18 +13,18 @@
     <tr *ngIf="ren.id == rental.id">
       <td><a href="clients/{{ren.client.id}}">{{ren.client.name}}</a></td>
       <td><a href="vehicles/{{ren.vehicle.id}}">{{ren.vehicle.model}}</a></td>
-      <td>{{ren.start | date: 'dd/MM/yyyy HH:mm'}}</td>
-      <td>{{ren.finish | date: 'dd/MM/yyyy HH:mm'}}</td>
+      <td>{{ren.start}}</td>
+      <td>{{ren.finish}}</td>
       <td><button (click)="gotoInvoice(rental.id)" class="btn btn-info" [disabled]="!f.valid">Ir para fatura</button></td>
     </tr>
 </table>  
 <div [hidden]="submitted" style="width: 400px;">
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
         <label for="dateReturn">Sinalizar Devolução</label>
         <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dateReturn" name="dateReturn">
       </div>
-      <button type="submit" class="btn btn-success">Concluir</button> 
+      <button type="submit" class="btn btn-success" (click)="dateFormat(f)">Concluir</button> 
     </form>
   </div>
   

@@ -15,8 +15,8 @@
         <tbody>
           <tr *ngFor="let rental of rentals | async">
             <td><a href="clients/{{rental.client.id}}">{{rental.client.name}}</a></td>
-            <td>{{rental.start | date: 'dd/MM/yyyy HH:mm'}}</td>
-            <td>{{rental.finish | date: 'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{rental.start}}</td>
+            <td>{{rental.finish}}</td>
             <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
             <td><button (click)="deleteRental(rental.id)" class="btn btn-danger">Excluir</button>
               <button (click)="updateRental(rental.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>

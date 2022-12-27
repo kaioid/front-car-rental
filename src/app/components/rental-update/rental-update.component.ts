@@ -42,8 +42,20 @@ export class RentalUpdateComponent implements OnInit {
     this.rentalService.updateRental(this.id, this.rental).subscribe(data => console.log(data), error => console.log(error));
   }
 
-  onSubmit(){
+  onSubmit(f){
     this.rentalUpdate();
+  }
+
+  dateFormat(f){
+    let aux = f.value
+    let data = new Date(aux.dateReturn)
+
+    let formatReturn = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data)
+
+    f.form.patchValue({
+      dateReturn: formatReturn 
+    })
+  
   }
 
   gotoInvoice(id){
