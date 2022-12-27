@@ -16,16 +16,18 @@
       </select>
       <div class="alert alert-danger" role="alert" *ngIf="category.invalid && category.touched">Informe uma categoria!</div>
 
+  <label class="form-label" for="pricePerDay">Valor diária:</label>
+  <div class="input-group">
+      <span class="input-group-text">R$</span>
+      <input type="number" class="form-control" id="pricePerDay" required [(ngModel)]="vehicle.pricePerDay" name="pricePerDay" placeholder="0">
+      <span class="input-group-text">.00</span>
+  </div>
+  <label class="form-label" for="pricePerHour">Valor por hora:</label>
+  <div class="input-group">
+      <span class="input-group-text">R$</span>
+      <input type="number" class="form-control" id="pricePerHour" required [(ngModel)]="vehicle.pricePerHour" name="pricePerHour" placeholder="0">
+      <span class="input-group-text">.00</span>
 
-  <div class="row">
-    <div class="col">
-      <label for="pricePerDay" class="form-label">Preço por diária: *</label>
-      <input type="number" class="form-control" id="pricePerDay" required [(ngModel)]="vehicle.pricePerDay" name="pricePerDay" placeholder="R$ 00.00">
-    </div>
-    <div class="col">
-      <label for="pricePerHour" class="form-label">Preço por hora: *</label>
-      <input type="number" class="form-control" id="pricePerHour" required [(ngModel)]="vehicle.pricePerHour" name="pricePerHour" placeholder="R$ 00.00">
-    </div>
   </div>
     <button type="submit" class="btn btn-success" [disabled]="!carForm.valid">Concluir</button>
   </form>
