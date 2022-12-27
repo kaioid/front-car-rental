@@ -59,7 +59,7 @@ export class RentalUpdateComponent implements OnInit {
   }
 
   gotoInvoice(id){
-    this.router.navigate([`/invoices/${id}`])
+    this.router.navigate([`/invoices/`])
   }
 
 }
