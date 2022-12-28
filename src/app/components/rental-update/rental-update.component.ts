@@ -34,7 +34,7 @@ export class RentalUpdateComponent implements OnInit {
   }
 
   reloadData(){
-    this.rentals = this.rentalService.getRentalList();
+    this.rentals = this.rentalService.getOpenRentalList();
   }
 
 
@@ -44,6 +44,7 @@ export class RentalUpdateComponent implements OnInit {
 
   onSubmit(f){
     this.rentalUpdate();
+    this.gotoInvoice(f);
   }
 
   dateFormat(f){

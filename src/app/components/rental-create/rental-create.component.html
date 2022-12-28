@@ -1,5 +1,5 @@
 <h3>Locar carro</h3>
-
+<hr>
 <div [hidden]="submitted">
   <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
     <div class="row">
@@ -29,6 +29,7 @@
         </select>
       </div>
     </div>
+    <hr>
     <button type="submit" class="btn btn-success" [disabled]="!rf.valid" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
   </form>
 </div>

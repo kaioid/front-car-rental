@@ -1,21 +1,32 @@
-<h3>Editar carro</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<h3>Editando {{vehicle.model}}</h3>
+<hr>
+<div [hidden]="submitted">
   <form autocomplete="off" (ngSubmit)="onSubmit()">
-    <label for="name" class="form-label">Modelo: *</label>
-    <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model" #model="ngModel" placeholder="ex: Corolla XEI">
-    <div class="alert alert-danger" role="alert" *ngIf="model.invalid && model.touched">Informe um modelo!</div> 
-
-    <label for="name" class="form-label">Categoria: *</label><br>
-    <select class="form-select" id="category" required [(ngModel)]="vehicle.category" name="category" #category="ngModel" >
-      <option value="HATCH">Hatch</option>
-      <option value="SEDAN">Sedan</option>
-      <option value="SUV">SUV</option>
-      <option value="CAMIONETE">Camionete</option>
-      <option value="LUXO">Luxo</option>
-    </select>
-    <div class="alert alert-danger" role="alert" *ngIf="category.invalid && category.touched">Informe uma categoria!</div>
     <div class="row">
-      <div class="col">
+      <div class="col-md-4">
+        <label for="name" class="form-label">Modelo: *</label>
+        <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model"
+          #model="ngModel" placeholder="ex: Corolla XEI">
+        <div class="alert alert-danger" role="alert" *ngIf="model.invalid && model.touched">Informe um modelo!</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="name" class="form-label">Categoria: *</label>
+        <select class="form-select" id="category" required [(ngModel)]="vehicle.category" name="category"
+          #category="ngModel">
+          <option value="HATCH">Hatch</option>
+          <option value="SEDAN">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="CAMIONETE">Camionete</option>
+          <option value="LUXO">Luxo</option>
+        </select>
+        <div class="alert alert-danger" role="alert" *ngIf="category.invalid && category.touched">Informe uma categoria!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
         <label class="form-label" for="pricePerDay">Valor diária:</label>
         <div class="input-group">
           <span class="input-group-text">R$</span>
@@ -24,7 +35,7 @@
           <span class="input-group-text">.00</span>
         </div>
       </div>
-      <div class="col">
+      <div class="col-md-2">
         <label class="form-label" for="pricePerHour">Valor por hora:</label>
         <div class="input-group">
           <span class="input-group-text">R$</span>
@@ -34,6 +45,7 @@
         </div>
       </div>
     </div>
+    <hr>
     <button type="submit" class="btn btn-success">Concluir</button>
   </form>
 </div>

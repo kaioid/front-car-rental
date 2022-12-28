@@ -39,7 +39,7 @@ export class RentalCreateComponent implements OnInit {
   save() {
     this.rentalService.createRental(this.rental).subscribe(data=>console.log(data), error => console.log(error));
     this.rental = new Rental();
-
+    this.gotoList();
   }
 
   onSubmit(rf){

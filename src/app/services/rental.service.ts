@@ -23,7 +23,10 @@ export class RentalService {
     deleteRental(id: number) : Observable<any>{
         return this.http.delete(`${this.baseUrl}/${id}`,{responseType: 'text'});
     }
-    getRentalList(): Observable<any>{
-        return this.http.get(`${this.baseUrl}`);
+    getOpenRentalList(): Observable<any>{
+        return this.http.get(`${this.baseUrl}/open`);
+    }
+    getClosedRentalList(): Observable<any>{
+        return this.http.get(`${this.baseUrl}/close`);
     }
 }

@@ -18,7 +18,7 @@ export class InvoiceListComponent implements OnInit {
   }
 
   reloadData(){
-    this.rentals = this.invoiceService.getRentalList();
+    this.rentals = this.invoiceService.getClosedRentalList();    
   }
 
 }

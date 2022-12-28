@@ -11,7 +11,8 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalListComponent implements OnInit {
 
-  rentals: Observable<Rental[]>;
+  openRentals: Observable<Rental[]>;
+  closedRentals: Observable<Rental[]>;
 
   constructor(private rentalService: RentalService, private router: Router) { }
 
@@ -20,7 +21,8 @@ export class RentalListComponent implements OnInit {
   }
 
   reloadData(){
-    this.rentals = this.rentalService.getRentalList();
+    this.openRentals = this.rentalService.getOpenRentalList();
+    this.closedRentals = this.rentalService.getClosedRentalList();
   }
 
   deleteRental(id: number){

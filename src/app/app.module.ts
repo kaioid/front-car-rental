@@ -19,6 +19,12 @@ import { RentalUpdateComponent } from './components/rental-update/rental-update.
 import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +45,9 @@ import { InvoiceDetailsComponent } from './components/invoice-details/invoice-de
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxMaskModule.forRoot(maskConfig),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

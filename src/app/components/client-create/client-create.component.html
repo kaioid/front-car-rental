@@ -1,10 +1,11 @@
 <h3>Cadastrar novo cliente</h3>
+<hr>
 <div [hidden]="submitted">
   <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
     <div class="row g-6">
       <div class="col-md-3">
         <label for="cpf" class="form-label">CPF: *</label>
-        <input type="text" class="form-control" id="cpf" required [(ngModel)]="client.cpf" name="cpf" minlength="11" #cpf="ngModel" placeholder="ex: 123.456.789-10">
+        <input type="text" mask="000.000.000-00" class="form-control" id="cpf" required [(ngModel)]="client.cpf" name="cpf" minlength="11" #cpf="ngModel" placeholder="ex: 123.456.789-10">
         <div class="alert alert-danger" role="alert" *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
       </div>
       <div class="col-md-6">
@@ -21,7 +22,7 @@
     <div class="row g-6">
     <div class="col-md-3">
         <label for="cep" class="form-label">CEP: *</label>
-        <input type="text" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep" minlength="8" #cep="ngModel" placeholder="ex: 55641-715" (blur)="consultaCEP($event.target.value, usuarioForm)">
+        <input type="text" mask="00000-999" class="form-control" id="cep" required [(ngModel)]="client.cep" name="cep" minlength="8" #cep="ngModel" placeholder="ex: 55641-715" (blur)="consultaCEP($event.target.value, usuarioForm)">
         <div class="alert alert-danger" role="alert" *ngIf="cep.invalid && cep.touched">Informe um CEP válido!</div>
     </div>
     <div class="col-md-6">
@@ -53,6 +54,7 @@
         <input type="text" class="form-control" id="uf"  [(ngModel)]="client.uf" name="uf" placeholder="ex: PE">
     </div>
   </div>
+  <hr>
     <button type="submit" class="btn btn-success" [disabled]="!usuarioForm.valid" >Concluir</button>
 
   </form>
