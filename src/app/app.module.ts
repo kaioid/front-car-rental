@@ -17,9 +17,9 @@ import { RentalListComponent } from './components/rental-list/rental-list.compon
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
 import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
-import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component'
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -40,7 +40,7 @@ const maskConfig: Partial<IConfig> = {
     RentalCreateComponent,
     RentalUpdateComponent,
     InvoiceListComponent,
-    InvoiceDetailsComponent
+    InvoicePDFComponent
   ],
   imports: [
     BrowserModule,

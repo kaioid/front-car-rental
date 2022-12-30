@@ -1,0 +1,111 @@
+<div >
+<div class="box">
+    <div class="tittle">Fatura de locação de veículo</div>
+    <div class="logo">
+        <img src="assets/images/logo.svg" height="45px">
+    </div>
+    <div class="data">
+        <div class="row">
+            <div class="col">Data de emissão: {{rental.dateReturn}}</div>
+        </div>
+    </div>
+</div>
+<h3>DADOS DO PRESTADOR DE SERVIÇOS</h3>
+<div class="box">
+    <div class="tittle">Razão social da empresa: LOCA-CAP</div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>CNPJ:</strong> 00.000.00/0001-00</div>
+        <div class="col"><strong>Insc.Munic.:</strong> 00000000</div>
+        <div class="col"><strong>E-mail:</strong> contato@locacap.com</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>Endereço:</strong> Rua algum lugar Nº 00</div>
+        <div class="col"><strong>Bairro:</strong> Lugar nenhum II</div>
+        <div class="col"><strong>Município:</strong> Salvador</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>UF:</strong> BA</div>
+        <div class="col"><strong>CEP:</strong> 12345-000</div>
+        <div class="col"><strong>Fone:</strong> (10) 0000-0001</div>
+    </div>
+    <br>
+</div>
+<h3>DADOS DO TOMADOR DE SERVIÇOS</h3>
+<div class="box">
+    <div class="tittle">Razão social do cliente: {{rental.client.name}}</div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>CPF/CNPJ:</strong> {{rental.client.cpf | mask: '000.000.000-00'}}</div>
+        <div class="col"><strong>Insc.Munic.:</strong> 00000000</div>
+        <div class="col"><strong>E-mail:</strong> {{rental.client.email}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>Endereço:</strong> {{rental.client.logradouro}} Nº {{rental.client.numero}}</div>
+        <div class="col"><strong>Bairro:</strong> {{rental.client.bairro}}</div>
+        <div class="col"><strong>Município:</strong> {{rental.client.localidade}}</div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col"><strong>UF:</strong> {{rental.client.uf}}</div>
+        <div class="col"><strong>CEP:</strong> {{rental.client.cep | mask: '00000-000'}}</div>
+        <div class="col"><strong>Fone:</strong> (10) 0000-0001</div>
+    </div>
+    <br>
+</div>
+<h3>DETALHES DO SERVIÇO</h3>
+<div class="box">
+    <br>
+    <div class="row">
+        <div class="col"><strong>Veículo locado: </strong> {{rental.vehicle.model}}</div>
+        <div class="col"><strong>Data de locação: </strong> {{rental.start | mask: '00/00/0000'}}</div>
+        <div class="col"><strong>Data de devolução prevista: </strong>{{rental.finish | mask: '00/00/0000'}}</div>
+    </div>
+    <br>
+</div>
+<h3>VALORES</h3>
+<div class="box">
+    <br>
+    <div class="row">
+        <div class="col"><strong>Valor da diária: </strong>{{rental.vehicle.pricePerDay | currency: 'BRL'}}</div>
+        <div class="col"><strong>Valor da fração de hora: </strong>{{rental.vehicle.pricePerHour | currency: 'BRL'}}</div>
+        <div class="col"><strong>Data de devolução real: </strong>{{rental.dateReturn | mask: '00/00/0000'}}</div>
+    </div>
+    <div class="row">
+        <div class="col" ><strong>Pagamento base: </strong>{{rental.invoice.basicPayment | currency: 'BRL'}}</div>
+        <div class="col" ><strong>Valor da multa: </strong>{{rental.invoice.tax | currency: 'BRL'}}</div>
+        <div class="col" ><strong>Valor total: </strong>{{rental.invoice.totalPayment | currency: 'BRL'}}</div>
+    </div>
+    <br>
+</div>
+</div>
+<style>
+    .tittle{
+        text-align: center;
+        font-size: 25px;
+    }
+    .box{
+        border: 1px solid black;
+    }
+    .logo{
+        border: 1px solid black;
+        width: 200px;
+        padding: 50px;
+        margin: 20px;
+    }
+    .data{
+        text-align: end;
+    }
+    .content{
+        font-size: 15px;
+    }
+    h3{
+        margin: 4px;
+    }
+    strong{
+        margin-left: 20px;
+    }
+</style>

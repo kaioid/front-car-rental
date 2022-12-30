@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { Vehicle } from 'src/app/models/car';
-import { Client } from 'src/app/models/client';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { ClientService } from 'src/app/services/client.service';
@@ -44,7 +42,7 @@ export class RentalUpdateComponent implements OnInit {
 
   onSubmit(f){
     this.rentalUpdate();
-    this.gotoInvoice(f);
+    this.gotoList();
   }
 
   dateFormat(f){
@@ -59,8 +57,8 @@ export class RentalUpdateComponent implements OnInit {
   
   }
 
-  gotoInvoice(id){
-    this.router.navigate([`/invoices/`])
+  gotoList(){
+    this.router.navigate([`/rentals/`])
   }
 
 }

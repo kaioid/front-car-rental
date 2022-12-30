@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Rental } from 'src/app/models/rental';
-import { RentalService } from 'src/app/services/rental.service';
+import { Invoice } from 'src/app/models/invoice';
+import { InvoiceService } from 'src/app/services/invoice.service';
 
 @Component({
   selector: 'app-invoice-list',
@@ -10,15 +10,15 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class InvoiceListComponent implements OnInit {
 
-  rentals: Observable<Rental[]>;
-  constructor(private invoiceService: RentalService) { }
+  invoices: Observable<Invoice[]>;
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
     this.reloadData();
   }
 
   reloadData(){
-    this.rentals = this.invoiceService.getClosedRentalList();    
+    this.invoices = this.invoiceService.getInvoiceList();    
   }
 
 }
