@@ -21,12 +21,5 @@ export class InvoicePDFComponent implements OnInit {
     this.rentalService.getRental(this.id).subscribe(data=> {console.log(data);
     this.rental = data},
     error => console.log(error))
-  }
-
-  getValue(property: string){
-    return this.rental.invoice
-  }
-
-
-
+  } 
 }

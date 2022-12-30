@@ -46,9 +46,7 @@
             <td>{{rental.start}}</td>
             <td>{{rental.dateReturn}}</td>
             <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
-            <td>
-              <a *ngIf="rental.invoice" href="invoices/{{rental.invoice.id}}"><button>aa</button></a>
-            </td>
+            <td><a href="invoices/{{rental.id}}"><button type="button" class="btn btn-primary">Fatura</button></a></td>
           </tr>
         </tbody>
       </table>

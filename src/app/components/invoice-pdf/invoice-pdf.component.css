@@ -1,0 +1,25 @@
+.tittle{
+    text-align: center;
+    font-size: 25px;
+}
+.box{
+    border: 1px solid black;
+}
+.logo{
+    border: 1px solid black;
+    width: 200px;
+    padding: 50px;
+    margin: 20px;
+}
+.data{
+    text-align: end;
+}
+.content{
+    font-size: 15px;
+}
+h3{
+    margin: 4px;
+}
+strong{
+    margin-left: 20px;
+}

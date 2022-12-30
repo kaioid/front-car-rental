@@ -16,7 +16,6 @@ import { ClientUpdateComponent } from './components/client-update/client-update.
 import { RentalListComponent } from './components/rental-list/rental-list.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
-import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component'
@@ -39,7 +38,6 @@ const maskConfig: Partial<IConfig> = {
     RentalListComponent,
     RentalCreateComponent,
     RentalUpdateComponent,
-    InvoiceListComponent,
     InvoicePDFComponent
   ],
   imports: [

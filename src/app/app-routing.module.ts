@@ -9,7 +9,6 @@ import { ClientCreateComponent } from './components/client-create/client-create.
 import { ClientDetailsComponent } from './components/client-details/client-details.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
-import { InvoiceListComponent } from './components/invoice-list/invoice-list.component';
 import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalListComponent } from './components/rental-list/rental-list.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'rentals', component: RentalListComponent },
   { path: 'rentals/add', component: RentalCreateComponent},
   { path: 'rentals/update/:id', component: RentalUpdateComponent },
-  { path: 'invoices', component: InvoiceListComponent },
   { path: 'invoices/:id', component: InvoicePDFComponent }
   
 ];
