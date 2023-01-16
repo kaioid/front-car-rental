@@ -12,6 +12,7 @@ import { CarService } from '../../services/car.service';
 export class CarListComponent implements OnInit {
 
   vehicles: Observable<Vehicle[]>;
+  show = false;
   constructor(private carService: CarService, private router: Router) { }
 
   ngOnInit() {
@@ -22,20 +23,16 @@ export class CarListComponent implements OnInit {
     this.vehicles=this.carService.getCarList();
   }
 
-  deleteCar(id: number){
-    this.carService.deleteCar(id).subscribe(data=>{
-      console.log(data)
-      this.reloadData();
-    },
-    error => console.log(error));
-  }
-
   carDetails(id: number){
     this.router.navigate(['vehicles/', id]);
   }
 
-  updateCar(id: number){
-    this.router.navigate(['vehicles/update', id]);
+  listMode(){
+    this.show=true;
+  }
+
+  cardMode(){
+    this.show=false
   }
 
 }
