@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Vehicle } from 'src/app/models/car';
+import { Vehicle } from 'src/app/models/vehicle';
 import { Client } from 'src/app/models/client';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';

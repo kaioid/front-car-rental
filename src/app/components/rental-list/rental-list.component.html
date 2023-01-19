@@ -16,10 +16,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let rental of openRentals | async">
-            <td><a href="clients/{{rental.client.id}}">{{rental.client.name}}</a></td>
-            <td>{{rental.start}}</td>
-            <td>{{rental.finish}}</td>
-            <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
+            <td><a href="">{{rental.nomeCliente}}</a></td>
+            <td>{{rental.dataInicio}}</td>
+            <td>{{rental.dataFim}}</td>
+            <td>{{rental.veiculo}}</td>
             <td><button (click)="deleteRental(rental.id)" class="btn btn-danger">Excluir</button>
               <button (click)="updateRental(rental.id)" class="btn btn-info" style="margin-left: 10px">Confirmar devolução</button>
             </td>
@@ -42,10 +42,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let rental of closedRentals | async">
-            <td><a href="clients/{{rental.client.id}}">{{rental.client.name}}</a></td>
-            <td>{{rental.start}}</td>
-            <td>{{rental.dateReturn}}</td>
-            <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.vehicle.model}}</a></td>
+            <td><a href="clients/{{rental.client.id}}">{{rental.nomeCliente}}</a></td>
+            <td>{{rental.dataInicio}}</td>
+            <td>{{rental.dataDevolucao}}</td>
+            <td><a href="vehicles/{{rental.vehicle.id}}">{{rental.veiculo}}</a></td>
             <td><a href="invoices/{{rental.id}}"><button type="button" class="btn btn-primary">Fatura</button></a></td>
           </tr>
         </tbody>

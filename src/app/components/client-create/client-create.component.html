@@ -10,14 +10,19 @@
       </div>
       <div class="col-md-6">
         <label for="name" class="form-label">Nome: *</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" #name="ngModel" placeholder="José Silva">
+        <input type="text" class="form-control" id="name" required [(ngModel)]="client.nome" name="name" #name="ngModel" placeholder="José Silva">
         <div class="alert alert-danger" role="alert" *ngIf="name.invalid && name.touched">Informe um nome!</div>
       </div>
-    <div class="col-md-9">
-        <label for="email" class="form-label">E-mail: *</label>
-        <input type="email" class="form-control" id="email" required email [(ngModel)]="client.email" name="email" #email="ngModel" placeholder="josesilva@mail.com">
-        <div class="alert alert-danger" role="alert" *ngIf="email.invalid && email.touched">Informe um E-mail!</div>
-    </div>
+    <div class="col-md-5">
+      <label for="email" class="form-label">E-mail: *</label>
+      <input type="email" class="form-control" id="email" required email [(ngModel)]="client.email" name="email" #email="ngModel" placeholder="josesilva@mail.com">
+      <div class="alert alert-danger" role="alert" *ngIf="email.invalid && email.touched">Informe um E-mail!</div>
+  </div>
+  <div class="col-md-4">
+    <label for="senha" class="form-label">Senha: *</label>
+    <input type="password" class="form-control" id="senha" required password [(ngModel)]="client.senha" name="senha" #senha="ngModel">
+    <div class="alert alert-danger" role="alert" *ngIf="senha.invalid && senha.touched">Informe uma senha!</div>
+</div>
   </div>
     <div class="row g-6">
     <div class="col-md-3">

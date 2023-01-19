@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +18,10 @@ import { RentalCreateComponent } from './components/rental-create/rental-create.
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component'
+import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component';
+import { LoginComponent } from './components/login/login.component'
+import { TokenInterceptor } from './token.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -38,7 +41,9 @@ const maskConfig: Partial<IConfig> = {
     RentalListComponent,
     RentalCreateComponent,
     RentalUpdateComponent,
-    InvoicePDFComponent
+    InvoicePDFComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,13 @@ const maskConfig: Partial<IConfig> = {
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class RentalService {
-    private baseUrl = 'http://localhost:8080/api/rentals';
+    private baseUrl = 'http://localhost:8080/locacoes';
 
     constructor(private http: HttpClient) { }
 
@@ -17,16 +17,16 @@ export class RentalService {
     createRental(rental: Object) : Observable<any>{
         return this.http.post(`${this.baseUrl}`, rental);
     }
-    updateRental(id:number, value: any) : Observable<Object>{
+    updateRental(id: number, value: any) : Observable<Object>{
         return this.http.put(`${this.baseUrl}/${id}`, value);
     }
     deleteRental(id: number) : Observable<any>{
         return this.http.delete(`${this.baseUrl}/${id}`,{responseType: 'text'});
     }
     getOpenRentalList(): Observable<any>{
-        return this.http.get(`${this.baseUrl}/open`);
+        return this.http.get(`${this.baseUrl}/abertos`);
     }
     getClosedRentalList(): Observable<any>{
-        return this.http.get(`${this.baseUrl}/close`);
+        return this.http.get(`${this.baseUrl}/fechados`);
     }
 }

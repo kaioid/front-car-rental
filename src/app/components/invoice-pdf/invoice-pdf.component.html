@@ -6,7 +6,7 @@
     </div>
     <div class="data">
         <div class="row">
-            <div class="col">Data de emissão: {{rental.dateReturn}}</div>
+            <div class="col">Data de emissão: {{rental.dataDevolucao}}</div>
         </div>
     </div>
 </div>
@@ -35,23 +35,23 @@
 </div>
 <h3>DADOS DO TOMADOR DE SERVIÇOS</h3>
 <div class="box">
-    <div class="tittle">Razão social do cliente: {{rental.client.name | uppercase}}</div>
+    <div class="tittle">Razão social do cliente: {{rental.cliente.nome | uppercase}}</div>
     <br>
     <div class="row">
-        <div class="col"><strong>CPF/CNPJ:</strong> {{rental.client.cpf | mask: '000.000.000-00'}}</div>
+        <div class="col"><strong>CPF/CNPJ:</strong> {{rental.cliente.cpf | mask: '000.000.000-00'}}</div>
         <div class="col"><strong>Insc.Munic.:</strong> 00000000</div>
-        <div class="col"><strong>E-mail:</strong> {{rental.client.email}}</div>
+        <div class="col"><strong>E-mail:</strong> {{rental.cliente.email}}</div>
     </div>
     <br>
     <div class="row">
-        <div class="col"><strong>Endereço:</strong> {{rental.client.logradouro}} Nº {{rental.client.numero}}</div>
-        <div class="col"><strong>Bairro:</strong> {{rental.client.bairro}}</div>
-        <div class="col"><strong>Município:</strong> {{rental.client.localidade}}</div>
+        <div class="col"><strong>Endereço:</strong> {{rental.cliente.logradouro}} Nº {{rental.cliente.numero}}</div>
+        <div class="col"><strong>Bairro:</strong> {{rental.cliente.bairro}}</div>
+        <div class="col"><strong>Município:</strong> {{rental.cliente.localidade}}</div>
     </div>
     <br>
     <div class="row">
-        <div class="col"><strong>UF:</strong> {{rental.client.uf}}</div>
-        <div class="col"><strong>CEP:</strong> {{rental.client.cep | mask: '00000-000'}}</div>
+        <div class="col"><strong>UF:</strong> {{rental.cliente.uf}}</div>
+        <div class="col"><strong>CEP:</strong> {{rental.cliente.cep | mask: '00000-000'}}</div>
         <div class="col"><strong>Fone:</strong> </div>
     </div>
     <br>
@@ -60,9 +60,9 @@
 <div class="box">
     <br>
     <div class="row">
-        <div class="col"><strong>Veículo locado: </strong> {{rental.vehicle.model}}</div>
-        <div class="col"><strong>Data de locação: </strong> {{rental.start | mask: '00/00/0000'}}</div>
-        <div class="col"><strong>Data de devolução prevista: </strong>{{rental.finish | mask: '00/00/0000'}}</div>
+        <div class="col"><strong>Veículo locado: </strong> {{rental.veiculo.modelo}}</div>
+        <div class="col"><strong>Data de locação: </strong> {{rental.dataInicio | mask: '00/00/0000'}}</div>
+        <div class="col"><strong>Data de devolução prevista: </strong>{{rental.dataFim | mask: '00/00/0000'}}</div>
     </div>
     <br>
 </div>
@@ -70,9 +70,9 @@
 <div class="box">
     <br>
     <div class="row">
-        <div class="col"><strong>Valor da diária: </strong>{{rental.vehicle.pricePerDay | currency: 'BRL'}}</div>
-        <div class="col"><strong>Valor da fração de hora: </strong>{{rental.vehicle.pricePerHour | currency: 'BRL'}}</div>
-        <div class="col"><strong>Data de devolução real: </strong>{{rental.dateReturn | mask: '00/00/0000'}}</div>
+        <div class="col"><strong>Valor da diária: </strong>{{rental.veiculo.precoPorDia | currency: 'BRL'}}</div>
+        <div class="col"><strong>Valor da fração de hora: </strong>{{rental.veiculo.precoPorHora | currency: 'BRL'}}</div>
+        <div class="col"><strong>Data de devolução real: </strong>{{rental.dataDevolucao | mask: '00/00/0000'}}</div>
     </div>
     <br>
     <div class="row">

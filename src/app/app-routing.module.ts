@@ -10,25 +10,30 @@ import { ClientDetailsComponent } from './components/client-details/client-detai
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientUpdateComponent } from './components/client-update/client-update.component';
 import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component';
+import { LoginComponent } from './components/login/login.component';
 import { RentalCreateComponent } from './components/rental-create/rental-create.component';
 import { RentalListComponent } from './components/rental-list/rental-list.component';
 import { RentalUpdateComponent } from './components/rental-update/rental-update.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
 
-  { path: 'vehicles', component: CarListComponent },
-  { path: 'vehicles/add', component: CarCreateComponent },
-  { path: 'vehicles/update/:id', component: CarUpdateComponent },
-  { path: 'vehicles/:id', component: CarDetailsComponent },
-  { path: 'clients', component: ClientListComponent },
-  { path: 'clients/add', component: ClientCreateComponent },
-  { path: 'clients/update/:id', component: ClientUpdateComponent },
-  { path: 'clients/:id', component: ClientDetailsComponent },
-  { path: 'rentals', component: RentalListComponent },
-  { path: 'rentals/add', component: RentalCreateComponent},
-  { path: 'rentals/update/:id', component: RentalUpdateComponent },
-  { path: 'invoices/:id', component: InvoicePDFComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '', children: [
+    { path: 'vehicles', component: CarListComponent },
+    { path: 'vehicles/add', component: CarCreateComponent },
+    { path: 'vehicles/update/:id', component: CarUpdateComponent },
+    { path: 'vehicles/:id', component: CarDetailsComponent },
+    { path: 'clients', component: ClientListComponent },
+    { path: 'clients/add', component: ClientCreateComponent },
+    { path: 'clients/update/:id', component: ClientUpdateComponent },
+    { path: 'clients/:id', component: ClientDetailsComponent },
+    { path: 'rentals', component: RentalListComponent },
+    { path: 'rentals/add', component: RentalCreateComponent},
+    { path: 'rentals/update/:id', component: RentalUpdateComponent },
+    { path: 'invoices/:id', component: InvoicePDFComponent }
+  ], canActivate : [AuthGuard]}
   
 ];
 

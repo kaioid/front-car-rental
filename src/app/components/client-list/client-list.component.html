@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let client of clients | async">
-            <td>{{client.name}}</td>
+            <td>{{client.nome}}</td>
             <td>{{client.cpf | mask: '000.000.000-00'}}</td>
             <td><button (click)="deleteClient(client.id)" class="btn btn-danger">Excluir</button>
               <button (click)="updateClient(client.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>

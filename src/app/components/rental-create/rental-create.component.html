@@ -5,27 +5,27 @@
     <div class="row">
       <div class="col-md-3">
         <label for="start" class="form-label">Data de locação: </label>
-        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.start" name="start">
+        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="rental.dataInicio" name="start">
       </div>
       <div class="col-md-3">
         <label for="finish" class="form-label">Data de devolução prevista: </label>
-        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.finish"
+        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="rental.dataFim"
           name="finish">
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <label for="client" class="form-label">Cliente:</label>
-        <select class="form-select" id="client" required [(ngModel)]="rental.client" name="client">
-          <option *ngFor="let client of clients | async" [ngValue]=client.id>{{client.name}}</option>
+        <select class="form-select" id="client" required [(ngModel)]="rental.cliente" name="client">
+          <option *ngFor="let client of clients | async" [ngValue]=client.id>{{client.nome}}</option>
         </select>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <label for="vehicle" class="form-label">Carro:</label>
-        <select class="form-select" id="vehicle" required [(ngModel)]="rental.vehicle" name="vehicle">
-          <option *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.model}}</option>
+        <select class="form-select" id="vehicle" required [(ngModel)]="rental.veiculo" name="vehicle">
+          <option *ngFor="let vehicle of vehicles | async" [ngValue]=vehicle.id>{{vehicle.modelo}}</option>
         </select>
       </div>
     </div>

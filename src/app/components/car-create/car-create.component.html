@@ -5,16 +5,16 @@
 
     <div class="row">
       <div class="col-md-4">
-        <label for="name" class="form-label">Modelo: *</label>
-        <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model"
+        <label for="modelo" class="form-label">Modelo: *</label>
+        <input type="text" class="form-control" id="modelo" required [(ngModel)]="vehicle.modelo" name="modelo"
           #model="ngModel" placeholder="ex: Corolla XEI">
         <div class="alert alert-danger" role="alert" *ngIf="model.invalid && model.touched">Informe um modelo!</div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <label for="name" class="form-label">Categoria: *</label>
-        <select class="form-select" id="category" required [(ngModel)]="vehicle.category" name="category"
+        <label for="categoria" class="form-label">Categoria: *</label>
+        <select class="form-select" id="categoria" required [(ngModel)]="vehicle.categoria" name="categoria"
           #category="ngModel">
           <option value="HATCH">Hatch</option>
           <option value="SEDAN">Sedan</option>
@@ -28,19 +28,19 @@
     </div>
     <div class="row">
       <div class="col-md-2">
-        <label class="form-label" for="pricePerDay">Valor diária:</label>
+        <label class="form-label" for="precoPorDia">Valor diária:</label>
         <div class="input-group">
           <span class="input-group-text">R$</span>
-          <input type="number" class="form-control" id="pricePerDay" required [(ngModel)]="vehicle.pricePerDay"
-            name="pricePerDay" placeholder="0">
+          <input type="number" class="form-control" id="precoPorDia" required [(ngModel)]="vehicle.precoPorDia"
+            name="precoPorDia" placeholder="0">
         </div>
       </div>
       <div class="col-md-2">
-        <label class="form-label" for="pricePerHour">Valor por hora:</label>
+        <label class="form-label" for="precoPorHora">Valor por hora:</label>
         <div class="input-group">
           <span class="input-group-text">R$</span>
-          <input type="number" class="form-control" id="pricePerHour" required [(ngModel)]="vehicle.pricePerHour"
-            name="pricePerHour" placeholder="0">
+          <input type="number" class="form-control" id="precoPorHora" required [(ngModel)]="vehicle.precoPorHora"
+            name="precoPorHora" placeholder="0">
         </div>
       </div>
     </div>

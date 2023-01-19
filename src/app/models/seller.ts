@@ -1,22 +1,22 @@
 import { Person } from "./person";
 import { Rental } from "./rental";
 
-export class Client extends Person{
+export class Seller extends Person{
     id?: number;
     rentals?: Rental[];
 
     constructor (
-        cpf?: string,
-        nome?: string,
-        email?: string,
-        senha?: string,
-        cep?: string,
-        logradouro?: string,
-        complemento?: string,
-        numero?: string,
-        bairro?: string,
-        localidade?: string,
-        uf?: string
+        cpf: string,
+        nome: string,
+        email: string,
+        senha: string,
+        cep: string,
+        logradouro: string,
+        complemento: string,
+        numero: string,
+        bairro: string,
+        localidade: string,
+        uf: string
         ) 
         {
             super();

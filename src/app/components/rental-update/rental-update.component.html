@@ -11,10 +11,10 @@
   </thead>
   <tbody *ngFor="let ren of rentals | async">
     <tr *ngIf="ren.id == rental.id">
-      <td><a href="clients/{{ren.client.id}}">{{ren.client.name}}</a></td>
-      <td><a href="vehicles/{{ren.vehicle.id}}">{{ren.vehicle.model}}</a></td>
-      <td>{{ren.start}}</td>
-      <td>{{ren.finish}}</td>
+      <td><a href="clients/{{ren.cliente.id}}">{{ren.cliente.nome}}</a></td>
+      <td><a href="vehicles/{{ren.veiculo.id}}">{{ren.veiculo.modelo}}</a></td>
+      <td>{{ren.dataInicio}}</td>
+      <td>{{ren.dataFim}}</td>
     </tr>
 </table>  
 <div [hidden]="submitted">
@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-md-4">
         <label for="dateReturn" class="form-label">Sinalizar Devolução</label>
-        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dateReturn" name="dateReturn">
+        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="rental.dataDevolucao" name="dateReturn">
       </div>
     </div>
       <hr>

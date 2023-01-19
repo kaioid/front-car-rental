@@ -9,8 +9,8 @@
         <div class="alert alert-danger" role="alert" *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
       </div>
       <div class="col-md-6">
-        <label for="name" class="form-label">Nome: *</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="client.name" name="name" #name="ngModel" placeholder="José Silva">
+        <label for="nome" class="form-label">Nome: *</label>
+        <input type="text" class="form-control" id="nome" required [(ngModel)]="client.nome" name="nome" #name="ngModel" placeholder="José Silva">
         <div class="alert alert-danger" role="alert" *ngIf="name.invalid && name.touched">Informe um nome!</div>
       </div>
     <div class="col-md-9">
