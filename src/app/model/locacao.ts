@@ -1,5 +1,3 @@
-import { Veiculo } from "./veiculo";
-import { Cliente } from "./cliente";
 import { Invoice } from "./invoice";
 import { Vendedor } from "./vendedor";
 
@@ -7,10 +5,11 @@ export class Locacao {
     id?: number;
     dataInicio?: string;
     dataFim?: string;
-    cliente?: Cliente;
+    cliente?: number;
     vendedor?: Vendedor;
-    veiculo?: Veiculo;
+    veiculo?: number;
     dataDevolucao?: string;
     status?: string;
     invoice?: Invoice;
+    nomeCliente?: string;
 }

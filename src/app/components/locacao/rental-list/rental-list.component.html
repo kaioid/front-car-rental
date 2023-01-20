@@ -19,7 +19,7 @@
             <td><a href="">{{locacao.nomeCliente}}</a></td>
             <td>{{locacao.dataInicio}}</td>
             <td>{{locacao.dataFim}}</td>
-            <td>{{locacao.veiculo}}</td>
+            <td *ngFor="let veiculo of veiculos | async" [hidden]="veiculo.id!=locacao.veiculo">{{veiculo.modelo}}</td>
             <td><button (click)="deleteRental(locacao.id)" class="btn btn-danger">Excluir</button>
               <button (click)="updateRental(locacao.id)" class="btn btn-info" style="margin-left: 10px">Confirmar devolução</button>
             </td>
@@ -42,11 +42,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let locacao of fechadas | async">
-            <td><a href="clients/{{locacao.cliente.id}}">{{locacao.nomeCliente}}</a></td>
+            <td><a href="clientes/{{locacao.cliente}}">{{locacao.nomeCliente}}</a></td>
             <td>{{locacao.dataInicio}}</td>
             <td>{{locacao.dataDevolucao}}</td>
-            <td><a href="vehicles/{{locacao.veiculo.id}}">{{locacao.veiculo}}</a></td>
-            <td><a href="invoices/{{locacao.id}}"><button type="button" class="btn btn-primary">Fatura</button></a></td>
+            <td *ngFor="let veiculo of veiculos | async" [hidden]="veiculo.id!=locacao.veiculo"><a href="veiculos/{{locacao.veiculo}}">{{veiculo.modelo}}</a></td>
+            <td><a href="faturas/{{locacao.id}}"><button type="button" class="btn btn-primary">Fatura</button></a></td>
           </tr>
         </tbody>
       </table>

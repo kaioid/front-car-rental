@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'locacoes', component: RentalListComponent },
     { path: 'locacoes/add', component: RentalCreateComponent},
     { path: 'locacoes/update/:id', component: RentalUpdateComponent },
-    { path: 'invoices/:id', component: InvoicePDFComponent }
+    { path: 'faturas/:id', component: InvoicePDFComponent }
   ], canActivate : [AuthGuard]}
   
 ];

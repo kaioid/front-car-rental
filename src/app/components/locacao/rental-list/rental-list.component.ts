@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Locacao } from 'src/app/model/locacao'; 
+import { Veiculo } from 'src/app/model/veiculo';
 import { CrudService } from 'src/app/service/crud.service';
 
 
@@ -14,6 +15,7 @@ export class RentalListComponent implements OnInit {
 
   abertas: Observable<Locacao[]>;
   fechadas: Observable<Locacao[]>;
+  veiculos: Observable<Veiculo[]>;
 
   constructor(private crudService: CrudService, private router: Router) { }
 
@@ -24,6 +26,7 @@ export class RentalListComponent implements OnInit {
   reloadData(){
     this.abertas = this.crudService.getList('locacoes/abertos');
     this.fechadas = this.crudService.getList('locacoes/fechados');
+    this.veiculos = this.crudService.getList('veiculos')
   }
 
   deleteRental(id: number){

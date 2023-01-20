@@ -9,12 +9,12 @@
       <th>Data de Devolução prevista</th>
     </tr>
   </thead>
-  <tbody *ngFor="let ren of locacoes | async">
-    <tr *ngIf="ren.id == locacao.id">
-      <td><a href="clients/{{ren.cliente.id}}">{{ren.cliente.nome}}</a></td>
-      <td><a href="vehicles/{{ren.veiculo.id}}">{{ren.veiculo.modelo}}</a></td>
-      <td>{{ren.dataInicio}}</td>
-      <td>{{ren.dataFim}}</td>
+  <tbody>
+    <tr>
+      <td>{{locacao.nomeCliente}}</td>
+      <td>{{veiculo.modelo}}</td>
+      <td>{{locacao.dataInicio}}</td>
+      <td>{{locacao.dataFim}}</td>
     </tr>
 </table>  
 <div [hidden]="submitted">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
 import { Locacao } from 'src/app/model/locacao';
+import { Veiculo } from 'src/app/model/veiculo';
 import { CrudService } from 'src/app/service/crud.service';
 
 
@@ -12,26 +12,31 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class RentalUpdateComponent implements OnInit {
 
-  locacoes: Observable<Locacao[]>;
   id: number;
+  veiculoId: number;
   locacao: Locacao;
+  veiculo: Veiculo; 
   submitted = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private crudService: CrudService) { }
 
   ngOnInit(){
-    this.reloadData();
     this.locacao = new Locacao();
+    this.veiculo = new Veiculo();
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'locacoes').subscribe(data =>{
-      console.log(data);
       this.locacao = data;
+      this.veiculoId = this.locacao['veiculo']
+      
+      this.crudService.get(this.veiculoId, 'veiculos').subscribe(data =>{
+      this.veiculo = data;
+    })
     },
     error => console.log(error));
   }
 
   reloadData(){
-    this.locacoes = this.crudService.getList('locacoes/abertas');
+    
   }
 
 
