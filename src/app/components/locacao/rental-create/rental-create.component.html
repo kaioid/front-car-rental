@@ -1,0 +1,38 @@
+<h3>Locar carro</h3>
+<hr>
+<div [hidden]="submitted">
+  <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="start" class="form-label">Data de locação: </label>
+        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="locacao.dataInicio" name="start">
+      </div>
+      <div class="col-md-3">
+        <label for="finish" class="form-label">Data de devolução prevista: </label>
+        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="locacao.dataFim"
+          name="finish">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="cliente" class="form-label">Cliente:</label>
+        <select class="form-select" id="cliente" required [(ngModel)]="locacao.cliente" name="cliente">
+          <option *ngFor="let cliente of clientes | async" [ngValue]=cliente.id>{{cliente.nome}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="veiculo " class="form-label">Carro:</label>
+        <select class="form-select" id="veiculo " required [(ngModel)]="locacao.veiculo" name="veiculo ">
+          <option *ngFor="let veiculo of veiculos | async" [ngValue]=veiculo.id>{{veiculo.modelo}}</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success" [disabled]="!rf.valid" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <button class="btn btn-success" (click)="newRental()">Concluir</button> -->
+</div>

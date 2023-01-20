@@ -1,0 +1,35 @@
+<h3>Editar locação</h3>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Carro</th>
+      <th>Data de Locação</th>
+      <th>Data de Devolução prevista</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let ren of locacoes | async">
+    <tr *ngIf="ren.id == locacao.id">
+      <td><a href="clients/{{ren.cliente.id}}">{{ren.cliente.nome}}</a></td>
+      <td><a href="vehicles/{{ren.veiculo.id}}">{{ren.veiculo.modelo}}</a></td>
+      <td>{{ren.dataInicio}}</td>
+      <td>{{ren.dataFim}}</td>
+    </tr>
+</table>  
+<div [hidden]="submitted">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-md-4">
+        <label for="dateReturn" class="form-label">Sinalizar Devolução</label>
+        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="locacao.dataDevolucao" name="dateReturn">
+      </div>
+    </div>
+      <hr>
+      <button type="submit" class="btn btn-success" (click)="dateFormat(f)">Confirmar</button> 
+    </form>
+  </div>
+  
+  <div [hidden]="!submitted">
+    <button class="btn btn-success">Confirmar</button> -->
+  </div>

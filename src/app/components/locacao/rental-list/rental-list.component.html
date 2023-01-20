@@ -1,0 +1,54 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Locações em aberto</h3>
+      <hr>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Data de locação</th>
+            <th>Data de devolução prevista</th>
+            <th>Carro</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let locacao of abertas | async">
+            <td><a href="">{{locacao.nomeCliente}}</a></td>
+            <td>{{locacao.dataInicio}}</td>
+            <td>{{locacao.dataFim}}</td>
+            <td>{{locacao.veiculo}}</td>
+            <td><button (click)="deleteRental(locacao.id)" class="btn btn-danger">Excluir</button>
+              <button (click)="updateRental(locacao.id)" class="btn btn-info" style="margin-left: 10px">Confirmar devolução</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      <h3>Locações fechadas</h3>
+      <hr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Data de locação</th>
+            <th>Data de devolução</th>
+            <th>Carro</th>
+            <th>Fatura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let locacao of fechadas | async">
+            <td><a href="clients/{{locacao.cliente.id}}">{{locacao.nomeCliente}}</a></td>
+            <td>{{locacao.dataInicio}}</td>
+            <td>{{locacao.dataDevolucao}}</td>
+            <td><a href="vehicles/{{locacao.veiculo.id}}">{{locacao.veiculo}}</a></td>
+            <td><a href="invoices/{{locacao.id}}"><button type="button" class="btn btn-primary">Fatura</button></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

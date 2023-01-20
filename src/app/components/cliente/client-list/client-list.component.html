@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Lista de Clientes</h3>
+      <hr>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes | async">
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf | mask: '000.000.000-00'}}</td>
+            <td><button (click)="deleteClient(cliente.id)" class="btn btn-danger">Excluir</button>
+              <button (click)="updateClient(cliente.id)" class="btn btn-info" style="margin-left: 10px">Editar</button>
+                <button (click)="clientDetails(cliente.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

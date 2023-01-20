@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Rental } from 'src/app/models/rental';
-import { RentalService } from 'src/app/services/rental.service';
+import { Locacao } from 'src/app/model/locacao';
+import { CrudService } from 'src/app/service/crud.service';
+
 
 @Component({
   selector: 'app-invoice-pdf',
@@ -11,15 +12,15 @@ import { RentalService } from 'src/app/services/rental.service';
 export class InvoicePDFComponent implements OnInit {
 
   id: number;
-  rental: Rental;
+  locacao: Locacao;
 
-  constructor(private rentalService: RentalService, private route: ActivatedRoute) { }
+  constructor(private crudService: CrudService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.rental = new Rental();
+    this.locacao = new Locacao();
     this.id = this.route.snapshot.params['id'];
-    this.rentalService.getRental(this.id).subscribe(data=> {console.log(data);
-    this.rental = data},
+    this.crudService.get(this.id, 'locacoes').subscribe(data=> {console.log(data);
+    this.locacao = data},
     error => console.log(error))
   } 
 }
