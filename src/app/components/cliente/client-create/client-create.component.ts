@@ -26,7 +26,7 @@ export class ClientCreateComponent implements OnInit {
   }
 
   save(){
-    this.crudService.create(this.cliente, 'clientes').subscribe(data=>console.log(data), error => console.log(error));
+    this.crudService.create(this.cliente, 'clientes').subscribe(data=>{}, error => console.log(error));
     this.cliente = new Cliente();
     this.gotoList();
   }

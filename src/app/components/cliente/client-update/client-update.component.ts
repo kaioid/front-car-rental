@@ -22,14 +22,13 @@ export class ClientUpdateComponent implements OnInit {
     this.cliente = new Cliente();
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'clientes').subscribe(data =>{
-      console.log(data);
       this.cliente = data;
     },
     error => console.log(error));
   }
 
   clientUpdate(){
-    this.crudService.update(this.id,'clientes', this.cliente).subscribe(data=> console.log(data), error => console.log(error));
+    this.crudService.update(this.id,'clientes', this.cliente).subscribe(data=> {}, error => console.log(error));
     this.cliente = new Cliente();
     this.gotoList();
   }

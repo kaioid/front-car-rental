@@ -11,8 +11,6 @@ export class CepService {
 
   consultaCEP(cep: string) {
 
-    console.log(cep);
-
     cep = cep.replace(/\D/g, '');
 
     if (cep !== '') {

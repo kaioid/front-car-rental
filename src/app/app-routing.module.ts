@@ -9,7 +9,7 @@ import { ClientCreateComponent } from './components/cliente/client-create/client
 import { ClientDetailsComponent } from './components/cliente/client-details/client-details.component';
 import { ClientListComponent } from './components/cliente/client-list/client-list.component';
 import { ClientUpdateComponent } from './components/cliente/client-update/client-update.component';
-import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component';
+import { InvoicePDFComponent } from './components/fatura-pdf/invoice-pdf.component';
 import { LoginComponent } from './components/login/login.component';
 import { RentalCreateComponent } from './components/locacao/rental-create/rental-create.component';
 import { RentalListComponent } from './components/locacao/rental-list/rental-list.component';

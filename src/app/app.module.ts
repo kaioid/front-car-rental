@@ -18,7 +18,7 @@ import { RentalCreateComponent } from './components/locacao/rental-create/rental
 import { RentalUpdateComponent } from './components/locacao/rental-update/rental-update.component';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { InvoicePDFComponent } from './components/invoice-pdf/invoice-pdf.component';
+import { InvoicePDFComponent } from './components/fatura-pdf/invoice-pdf.component';
 import { LoginComponent } from './components/login/login.component'
 import { TokenInterceptor } from './token.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';

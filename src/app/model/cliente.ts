@@ -4,6 +4,7 @@ import { Locacao } from "./locacao";
 export class Cliente extends Pessoa{
     id?: number;
     locacoes?: Locacao[];
+    perfil?: string = 'CLIENTE'
 
     constructor (
         cpf?: string,

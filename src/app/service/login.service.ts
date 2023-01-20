@@ -30,6 +30,19 @@ export class LoginService {
       
   }
 
+  logout(){
+    localStorage.removeItem('access_token')
+  }
+
+  getUsuarioLogado(){
+    const token = this.getToken();
+    if(token){
+      const usuario = this.jwtHelper.decodeToken(token).sub
+      return usuario;
+    }
+    return null;
+  }
+
   getToken(){
     const tokenString = localStorage.getItem("access_token")
     if(tokenString){

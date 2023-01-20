@@ -12,7 +12,7 @@ import { Cliente } from 'src/app/model/cliente';
 export class ClientDetailsComponent implements OnInit {
 
   id: number;
-  cliente: Cliente;
+  cliente: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private crudService: CrudService) { }
 
@@ -20,7 +20,6 @@ export class ClientDetailsComponent implements OnInit {
     this.cliente = new Cliente();
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'clientes').subscribe(data=> {
-      console.log(data);
       this.cliente = data;
     },
     error => console.log(error))

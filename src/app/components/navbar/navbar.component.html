@@ -22,5 +22,8 @@
           <a routerLink="locacoes/add" class="nav-link" routerLinkActive="active">Locar carro</a>
         </li>
       </ul>
+      <img src="../assets/images/icons/user.svg" width="35px" style="margin-left: 6px;">
+      <strong>{{usuarioLogado}}</strong>
+      <a (click)="logout()" href=""><img src="../assets/images/icons/logout.svg" width="25px" style="margin-left: 6px;"></a>
     </div>
   </nav>
