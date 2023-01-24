@@ -47,7 +47,8 @@ export class RentalCreateComponent implements OnInit {
   }
 
   onSubmit(rf){
-
+    this.save();
+    this.gotoList();
   }
 
   gotoList(){
@@ -56,7 +57,6 @@ export class RentalCreateComponent implements OnInit {
 
   dateFormat(rf){
     let aux = rf.value
-    let vendedor = this.vendedorId;
     let data1 = new Date(aux.dataInicio)
     let data2 = new Date(aux.dataFim)
 
@@ -64,7 +64,6 @@ export class RentalCreateComponent implements OnInit {
     let formatFinish = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data2)
 
     rf.form.patchValue({
-      vendedor: vendedor,
       dataInicio: formatStart,
       dataFim: formatFinish
     })
