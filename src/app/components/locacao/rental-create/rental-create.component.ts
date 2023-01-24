@@ -5,6 +5,8 @@ import { Veiculo } from 'src/app/model/veiculo';
 import { Cliente } from 'src/app/model/cliente';
 import { Locacao } from 'src/app/model/locacao';
 import { CrudService } from 'src/app/service/crud.service';
+import { LoginService } from 'src/app/service/login.service';
+import { Vendedor } from 'src/app/model/vendedor';
 
 @Component({
   selector: 'app-rental-create',
@@ -15,18 +17,22 @@ export class RentalCreateComponent implements OnInit {
 
   clientes: Observable<Cliente[]>;
   veiculos: Observable<Veiculo[]>;
+  vendedores: Observable<Vendedor[]>;
 
+  vendedorId: number;
   locacao: Locacao = new Locacao();
   submitted = false;
-  constructor(private crudService: CrudService, private router: Router) { }
+  constructor(private crudService: CrudService, private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
+    this.vendedorId = this.loginService.vendedorId;
     this.reloadData();
   }
 
   reloadData(){
     this.clientes = this.crudService.getList('clientes');
     this.veiculos = this.crudService.getList('veiculos');
+    this.vendedores = this.crudService.getList('vendedores');
   }
 
   newRental(): void {
@@ -41,28 +47,16 @@ export class RentalCreateComponent implements OnInit {
   }
 
   onSubmit(rf){
-    this.submitted = true;
-    this.save();
+
   }
 
   gotoList(){
     this.router.navigate(['/locacoes'])
   }
 
-  fieldFormat(rf){
-    let aux = rf.value
-    rf.form.patchValue({
-      cliente: {
-        "id": aux.cliente
-      },
-      veiculo: {
-        "id": aux.veiculo
-      }
-    })
-  }
-
   dateFormat(rf){
     let aux = rf.value
+    let vendedor = this.vendedorId;
     let data1 = new Date(aux.dataInicio)
     let data2 = new Date(aux.dataFim)
 
@@ -70,6 +64,7 @@ export class RentalCreateComponent implements OnInit {
     let formatFinish = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data2)
 
     rf.form.patchValue({
+      vendedor: vendedor,
       dataInicio: formatStart,
       dataFim: formatFinish
     })

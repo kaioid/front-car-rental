@@ -21,14 +21,13 @@ export class CarUpdateComponent implements OnInit {
     this.veiculo = new Veiculo();
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'veiculos').subscribe(data =>{
-      console.log(data);
       this.veiculo = data;
     },
     error => console.log(error));
   }
 
   carUpdate(){
-    this.crudService.update(this.id, 'veiculos', this.veiculo).subscribe(data => console.log(data), error => console.log(error));
+    this.crudService.update(this.id, 'veiculos', this.veiculo).subscribe(data => {}, error => console.log(error));
     this.veiculo = new Veiculo();
     this.gotoList();
   }

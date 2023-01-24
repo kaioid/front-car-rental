@@ -28,7 +28,7 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   clientUpdate(){
-    this.crudService.update(this.id,'clientes', this.cliente).subscribe(data=> {}, error => console.log(error));
+    this.crudService.update(this.id, 'clientes', this.cliente).subscribe(data=> {}, error => console.log(error));
     this.cliente = new Cliente();
     this.gotoList();
   }
@@ -38,7 +38,7 @@ export class ClientUpdateComponent implements OnInit {
   }
 
   gotoList(){
-    this.router.navigate(['/clients'])
+    this.router.navigate(['/clientes'])
   }
 
   consultaCEP(cep, form) {

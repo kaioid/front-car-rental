@@ -34,7 +34,7 @@ export class CarCreateComponent implements OnInit {
   }
 
   gotoList(){
-    this.router.navigate(['/vehicles'])
+    this.router.navigate(['/veiculos'])
   }
 
 }

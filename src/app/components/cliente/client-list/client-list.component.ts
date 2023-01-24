@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { empty, Observable } from 'rxjs';
 import { CrudService } from 'src/app/service/crud.service';
 import { Cliente } from 'src/app/model/cliente'; 
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -21,7 +22,11 @@ export class ClientListComponent implements OnInit {
   }
 
   reloadData(){
-    this.clientes = this.crudService.getList('clientes');
+    this.clientes = this.crudService.getList('clientes').pipe(catchError(
+      error=>{
+        console.error(error);
+        return empty();
+      }))
   }
 
   deleteClient(id: number){

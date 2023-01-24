@@ -1,15 +1,13 @@
-import { Invoice } from "./invoice";
-import { Vendedor } from "./vendedor";
 
 export class Locacao {
     id?: number;
     dataInicio?: string;
     dataFim?: string;
     cliente?: number;
-    vendedor?: Vendedor;
+    vendedor?: number;
     veiculo?: number;
     dataDevolucao?: string;
-    status?: string;
-    invoice?: Invoice;
+    status?: number = 0;
+    fatura?: number;
     nomeCliente?: string;
 }

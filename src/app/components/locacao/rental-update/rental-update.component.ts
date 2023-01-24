@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Locacao } from 'src/app/model/locacao';
 import { Veiculo } from 'src/app/model/veiculo';
 import { CrudService } from 'src/app/service/crud.service';
+import { LoginService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -16,13 +17,16 @@ export class RentalUpdateComponent implements OnInit {
   veiculoId: number;
   locacao: Locacao;
   veiculo: Veiculo; 
+  vendedorId: number;
   submitted = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private crudService: CrudService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private loginService: LoginService, private crudService: CrudService) { }
 
   ngOnInit(){
     this.locacao = new Locacao();
     this.veiculo = new Veiculo();
+    this.vendedorId = this.loginService.vendedorId;
+
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'locacoes').subscribe(data =>{
       this.locacao = data;
@@ -35,11 +39,6 @@ export class RentalUpdateComponent implements OnInit {
     error => console.log(error));
   }
 
-  reloadData(){
-    
-  }
-
-
   rentalUpdate(){
     this.crudService.update(this.id, 'locacoes',this.locacao).subscribe(data => console.log(data), error => console.log(error));
   }
@@ -49,20 +48,14 @@ export class RentalUpdateComponent implements OnInit {
     this.gotoList();
   }
 
-  dateFormat(f){
-    let aux = f.value
-    let data = new Date(aux.dataRetorno)
-
-    let formatReturn = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(data)
-
-    f.form.patchValue({
-      dataRetorno: formatReturn 
-    })
-  
-  }
-
   gotoList(){
     this.router.navigate([`/locacoes/`])
+  }
+
+  setStatus(formulario){
+    formulario.form.patchValue({
+      status: 2
+    })
   }
 
 }

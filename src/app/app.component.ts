@@ -17,5 +17,6 @@ export class AppComponent {
     this.authService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     )
+    this.authService.getUsuarioId();
   }
 }

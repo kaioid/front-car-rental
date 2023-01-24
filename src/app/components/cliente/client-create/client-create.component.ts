@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { CepService } from 'src/app/service/cep.service';
 import { CrudService } from 'src/app/service/crud.service';
 import { Cliente } from 'src/app/model/cliente'; 
+import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/abstract_emitter';
+import { catchError } from 'rxjs/operators';
+import { empty } from 'rxjs';
 
 
 @Component({
@@ -26,7 +29,10 @@ export class ClientCreateComponent implements OnInit {
   }
 
   save(){
-    this.crudService.create(this.cliente, 'clientes').subscribe(data=>{}, error => console.log(error));
+    this.crudService.create(this.cliente, 'clientes')
+    .subscribe(
+      data=>{}, error => console.log(error)
+      );
     this.cliente = new Cliente();
     this.gotoList();
   }

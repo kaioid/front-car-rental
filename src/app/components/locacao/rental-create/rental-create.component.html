@@ -3,14 +3,22 @@
 <div [hidden]="submitted">
   <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
     <div class="row">
+      <div class="col-md-6">
+        <label for="vendedor" class="form-label">Vendedor:</label>
+        <select class="form-select" id="cliente" required [(ngModel)]="locacao.vendedor" name="cliente">
+          <option *ngFor="let vendedor of vendedores | async" [ngValue]=vendedor.id>{{vendedor.nome}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-3">
-        <label for="start" class="form-label">Data de locação: </label>
-        <input type="datetime-local" class="form-control" id="start" required [(ngModel)]="locacao.dataInicio" name="start">
+        <label for="dataInicio" class="form-label">Data de locação: </label>
+        <input type="datetime-local" class="form-control" id="dataInicio" required [(ngModel)]="locacao.dataInicio" name="dataInicio">
       </div>
       <div class="col-md-3">
-        <label for="finish" class="form-label">Data de devolução prevista: </label>
-        <input type="datetime-local" class="form-control" id="finish" required [(ngModel)]="locacao.dataFim"
-          name="finish">
+        <label for="dataFim" class="form-label">Data de devolução prevista: </label>
+        <input type="datetime-local" class="form-control" id="dataFim" required [(ngModel)]="locacao.dataFim"
+          name="dataFim">
       </div>
     </div>
     <div class="row">
@@ -24,13 +32,13 @@
     <div class="row">
       <div class="col-md-6">
         <label for="veiculo " class="form-label">Carro:</label>
-        <select class="form-select" id="veiculo " required [(ngModel)]="locacao.veiculo" name="veiculo ">
+        <select class="form-select" id="veiculo" required [(ngModel)]="locacao.veiculo" name="veiculo ">
           <option *ngFor="let veiculo of veiculos | async" [ngValue]=veiculo.id>{{veiculo.modelo}}</option>
         </select>
       </div>
     </div>
     <hr>
-    <button type="submit" class="btn btn-success" [disabled]="!rf.valid" (click)="dateFormat(rf)" (click)="fieldFormat(rf)">Concluir</button>
+    <button type="submit" class="btn btn-success" [disabled]="!rf.valid" (click)="dateFormat(rf)">Concluir</button>
   </form>
 </div>
 <div [hidden]="!submitted">

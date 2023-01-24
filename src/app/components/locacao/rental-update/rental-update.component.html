@@ -16,17 +16,22 @@
       <td>{{locacao.dataInicio}}</td>
       <td>{{locacao.dataFim}}</td>
     </tr>
-</table>  
+</table>
+{{f.value|json}}  
 <div [hidden]="submitted">
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="row">
-        <div class="col-md-4">
-        <label for="dateReturn" class="form-label">Sinalizar Devolução</label>
-        <input type="datetime-local" class="form-control" id="dateReturn" required [(ngModel)]="locacao.dataDevolucao" name="dateReturn">
+    <div class="row">
+      <div class="col-md-3">
+        <input [hidden]="true" type="number" class="form-control" id="vendedor" [(ngModel)]="locacao.vendedor" name="vendedor" [value]="vendedorId">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <input [hidden]="true" type="number" class="form-control" id="status" [(ngModel)]="locacao.status" name="status" [value]="2">
       </div>
     </div>
       <hr>
-      <button type="submit" class="btn btn-success" (click)="dateFormat(f)">Confirmar</button> 
+      <button type="submit" class="btn btn-success" (click)="setStatus(f)">Confirmar</button> 
     </form>
   </div>
   

@@ -34,24 +34,24 @@
     <br>
 </div>
 <h3>DADOS DO TOMADOR DE SERVIÇOS</h3>
-<div class="box">
+<div class="box" *ngFor="let cliente of clientes | async" [hidden]="cliente.id!=locacao.cliente">
     <div class="tittle">Razão social do cliente: {{locacao.nomeCliente | uppercase}}</div>
     <br>
     <div class="row">
-        <div class="col"><strong>CPF/CNPJ:</strong> {{locacao.cliente | mask: '000.000.000-00'}}</div>
+        <div class="col"><strong>CPF/CNPJ:</strong> {{cliente.cpf | mask: '000.000.000-00'}}</div>
         <div class="col"><strong>Insc.Munic.:</strong> 00000000</div>
-        <div class="col"><strong>E-mail:</strong> {{locacao.cliente}}</div>
+        <div class="col"><strong>E-mail:</strong> {{cliente.email}}</div>
     </div>
     <br>
     <div class="row">
-        <div class="col"><strong>Endereço:</strong> {{locacao.cliente}} Nº {{locacao.cliente}}</div>
-        <div class="col"><strong>Bairro:</strong> {{locacao.cliente}}</div>
-        <div class="col"><strong>Município:</strong> {{locacao.cliente}}</div>
+        <div class="col"><strong>Endereço:</strong> {{cliente.logradouro}} Nº {{cliente.numero}}</div>
+        <div class="col"><strong>Bairro:</strong> {{cliente.bairro}}</div>
+        <div class="col"><strong>Município:</strong> {{cliente.localidade}}</div>
     </div>
     <br>
     <div class="row">
-        <div class="col"><strong>UF:</strong> {{locacao.cliente}}</div>
-        <div class="col"><strong>CEP:</strong> {{locacao.cliente | mask: '00000-000'}}</div>
+        <div class="col"><strong>UF:</strong> {{cliente.uf}}</div>
+        <div class="col"><strong>CEP:</strong> {{cliente.cep | mask: '00000-000'}}</div>
         <div class="col"><strong>Fone:</strong> </div>
     </div>
     <br>
@@ -59,8 +59,8 @@
 <h3>DETALHES DO SERVIÇO</h3>
 <div class="box">
     <br>
-    <div class="row">
-        <div class="col"><strong>Veículo locado: </strong> {{locacao.veiculo}}</div>
+    <div class="row" *ngFor="let veiculo of veiculos | async" [hidden]="veiculo.id!=locacao.veiculo">
+        <div class="col"><strong>Veículo locado: </strong> {{veiculo.modelo}}</div>
         <div class="col"><strong>Data de locação: </strong> {{locacao.dataInicio | mask: '00/00/0000'}}</div>
         <div class="col"><strong>Data de devolução prevista: </strong>{{locacao.dataFim | mask: '00/00/0000'}}</div>
     </div>
@@ -69,16 +69,16 @@
 <h3>VALORES</h3>
 <div class="box">
     <br>
-    <div class="row">
-        <div class="col"><strong>Valor da diária: </strong>{{locacao.veiculo | currency: 'BRL'}}</div>
-        <div class="col"><strong>Valor da fração de hora: </strong>{{locacao.veiculo | currency: 'BRL'}}</div>
+    <div class="row" *ngFor="let veiculo of veiculos | async" [hidden]="veiculo.id!=locacao.veiculo">
+        <div class="col" ><strong>Valor da diária: </strong>{{veiculo.precoPorDia | currency: 'BRL'}}</div>
+        <div class="col"><strong>Valor da fração de hora: </strong>{{veiculo.precoPorHora | currency: 'BRL'}}</div>
         <div class="col"><strong>Data de devolução real: </strong>{{locacao.dataDevolucao | mask: '00/00/0000'}}</div>
     </div>
     <br>
-    <div class="row">
-        <div class="col" ><strong>Pagamento base: </strong>{{locacao.invoice.basicPayment | currency: 'BRL'}}</div>
-        <div class="col" ><strong>Valor da multa: </strong>{{locacao.invoice.tax | currency: 'BRL'}}</div>
-        <div class="col" ><strong>Valor total: </strong>{{locacao.invoice.totalPayment | currency: 'BRL'}}</div>
+    <div class="row" *ngFor="let fatura of faturas | async" [hidden]="fatura.id!=locacao.id">
+        <div class="col" ><strong>Pagamento base: </strong>{{fatura.pagamentoBasico | currency: 'BRL'}}</div>
+        <div class="col" ><strong>Valor da multa: </strong>{{fatura.taxa | currency: 'BRL'}}</div>
+        <div class="col" ><strong>Valor total: </strong>{{fatura.pagamentoBasico + fatura.taxa | currency: 'BRL'}}</div>
     </div>
     <br>
 </div>
