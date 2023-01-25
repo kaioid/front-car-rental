@@ -17,6 +17,7 @@ export class InvoicePDFComponent implements OnInit {
 
   id: number;
   locacao: Locacao;
+  fatura: Fatura;
   veiculos: Observable<Veiculo[]>;
   clientes: Observable<Cliente[]>;
   faturas: Observable<Fatura[]>;
@@ -25,13 +26,27 @@ export class InvoicePDFComponent implements OnInit {
 
   ngOnInit() {
     this.locacao = new Locacao();
+    this.fatura = new Fatura();
+
     this.veiculos = this.crudService.getList('veiculos');
     this.clientes = this.crudService.getList('clientes');
     this.faturas = this.crudService.getList('faturas');
 
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'locacoes').subscribe(data=> {console.log(data);
-    this.locacao = data},
+    this.locacao = data;
+  },
     error => console.log(error))
-  } 
+    this.setFatura();
+  }
+
+  setFatura(){
+    this.faturas.subscribe(data=>{
+      for(let fatura of data){
+        if(fatura['locacao'] && fatura['locacao']['id']==this.id){
+          this.fatura=fatura;
+        }
+      }
+    })
+  }
 }

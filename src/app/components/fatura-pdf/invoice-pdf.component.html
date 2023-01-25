@@ -75,7 +75,7 @@
         <div class="col"><strong>Data de devolução real: </strong>{{locacao.dataDevolucao | mask: '00/00/0000'}}</div>
     </div>
     <br>
-    <div class="row" *ngFor="let fatura of faturas | async" [hidden]="fatura.id!=locacao.id">
+    <div class="row">
         <div class="col" ><strong>Pagamento base: </strong>{{fatura.pagamentoBasico | currency: 'BRL'}}</div>
         <div class="col" ><strong>Valor da multa: </strong>{{fatura.taxa | currency: 'BRL'}}</div>
         <div class="col" ><strong>Valor total: </strong>{{fatura.pagamentoBasico + fatura.taxa | currency: 'BRL'}}</div>
