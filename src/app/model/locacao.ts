@@ -10,4 +10,5 @@ export class Locacao {
     status?: number = 0;
     fatura?: number;
     nomeCliente?: string;
+    nomeVendedor?: string;
 }
