@@ -5,8 +5,8 @@
     <div class="row g-6">
       <div class="col-md-3">
         <label for="cpf" class="form-label">CPF: *</label>
-        <input type="text" mask="000.000.000-00" class="form-control" id="cpf" required [(ngModel)]="cliente.cpf" name="cpf" minlength="11" #cpf="ngModel" placeholder="ex: 123.456.789-10">
-        <div class="alert alert-danger" role="alert" *ngIf="cpf.invalid && cpf.touched">Informe um CPF!</div>
+        <input type="text" mask="000.000.000-00" class="form-control" id="cpf" required [(ngModel)]="cliente.cpf" name="cpf" minlength="11" #cpf="ngModel" placeholder="ex: 123.456.789-10" (blur)="cpfValidator(usuarioForm.value.cpf)">
+        <div class="alert alert-danger" role="alert" *ngIf="cpf.touched && cpfValid==false">Informe um CPF válido!</div>
       </div>
       <div class="col-md-6">
         <label for="name" class="form-label">Nome: *</label>
@@ -60,7 +60,7 @@
     </div>
   </div>
   <hr>
-    <button type="submit" class="btn btn-success" [disabled]="!usuarioForm.valid" >Concluir</button>
+    <button type="submit" class="btn btn-success" [disabled]="!usuarioForm.valid || cpfValid==false" >Concluir</button>
 
   </form>
 </div>

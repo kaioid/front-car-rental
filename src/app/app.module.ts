@@ -43,7 +43,7 @@ const maskConfig: Partial<IConfig> = {
     RentalUpdateComponent,
     InvoicePDFComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
