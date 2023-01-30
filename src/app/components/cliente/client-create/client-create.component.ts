@@ -18,6 +18,7 @@ export class ClientCreateComponent implements OnInit {
   cliente: Cliente = new Cliente;
   submitted = false;
   cpfValid = false;
+  cepValid = false;
 
   constructor(private crudService: CrudService, private router: Router, private cepService: CepService) { }
 
@@ -51,6 +52,7 @@ export class ClientCreateComponent implements OnInit {
     cep = cep.replace(/\D/g, '');
 
     if (cep != null && cep !== '') {
+      this.cepValidator(cep);
       this.cepService.consultaCEP(cep)
       .subscribe(dados => this.populaDados(dados, form));
     }
@@ -91,6 +93,15 @@ export class ClientCreateComponent implements OnInit {
       return this.cpfValid = false;
     }
     return this.cpfValid = true;
+  }
+
+  cepValidator(cep){
+    if (cep == '00000000'){
+      return this.cepValid = false;
+    }
+    if (this.cepService.consultaCEP(cep)){
+      return this.cepValid = true;
+    }
   }
 
 }

@@ -6,7 +6,7 @@
       <div class="col-md-3">
         <label for="cpf" class="form-label">CPF: *</label>
         <input type="text" mask="000.000.000-00" class="form-control" id="cpf" required [(ngModel)]="cliente.cpf" name="cpf" minlength="11" #cpf="ngModel" placeholder="ex: 123.456.789-10" (blur)="cpfValidator(usuarioForm.value.cpf)">
-        <div class="alert alert-danger" role="alert" *ngIf="cpf.touched && cpfValid==false">Informe um CPF válido!</div>
+        <div class="alert alert-danger" role="alert" *ngIf="cpf.touched && cpfValid==false || cpf.touched && cpf.invalid">Informe um CPF válido!</div>
       </div>
       <div class="col-md-6">
         <label for="name" class="form-label">Nome: *</label>
@@ -28,7 +28,7 @@
     <div class="col-md-3">
         <label for="cep" class="form-label">CEP: *</label>
         <input type="text" mask="00000-999" class="form-control" id="cep" required [(ngModel)]="cliente.cep" name="cep" minlength="8" #cep="ngModel" placeholder="ex: 55641-715" (blur)="consultaCEP($event.target.value, usuarioForm)">
-        <div class="alert alert-danger" role="alert" *ngIf="cep.invalid && cep.touched">Informe um CEP válido!</div>
+        <div class="alert alert-danger" role="alert" *ngIf="cepValid==false && cep.touched || cpf.touched && cep.invalid">Informe um CEP válido!</div>
     </div>
     <div class="col-md-6">
         <label for="logradouro" class="form-label">Logradouro:</label>
