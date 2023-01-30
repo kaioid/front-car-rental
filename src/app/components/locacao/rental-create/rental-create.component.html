@@ -3,14 +3,6 @@
 <div [hidden]="submitted">
   <form #rf="ngForm" (ngSubmit)="onSubmit(rf)">
     <div class="row">
-      <div class="col-md-6">
-        <label for="vendedor" class="form-label">Vendedor:</label>
-        <select class="form-select" id="cliente" required [(ngModel)]="locacao.vendedor" name="cliente">
-          <option *ngFor="let vendedor of vendedores | async" [ngValue]=vendedor.id>{{vendedor.nome}}</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-md-3">
         <label for="dataInicio" class="form-label">Data de locação: </label>
         <input type="datetime-local" class="form-control" id="dataInicio" required [(ngModel)]="locacao.dataInicio" name="dataInicio">

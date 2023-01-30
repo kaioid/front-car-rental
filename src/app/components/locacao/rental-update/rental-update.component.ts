@@ -25,7 +25,7 @@ export class RentalUpdateComponent implements OnInit {
   ngOnInit(){
     this.locacao = new Locacao();
     this.veiculo = new Veiculo();
-    this.vendedorId = this.loginService.vendedorId;
+
 
     this.id = this.route.snapshot.params['id'];
     this.crudService.get(this.id, 'locacoes').subscribe(data =>{

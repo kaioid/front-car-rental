@@ -25,7 +25,7 @@ export class RentalCreateComponent implements OnInit {
   constructor(private crudService: CrudService, private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-    this.vendedorId = this.loginService.vendedorId;
+    this.vendedorId = parseInt(localStorage.getItem("vendedor_id"));
     this.reloadData();
   }
 
@@ -47,6 +47,7 @@ export class RentalCreateComponent implements OnInit {
   }
 
   onSubmit(rf){
+    this.locacao.vendedor = this.vendedorId;
     this.save();
     this.gotoList();
   }
@@ -65,7 +66,7 @@ export class RentalCreateComponent implements OnInit {
 
     rf.form.patchValue({
       dataInicio: formatStart,
-      dataFim: formatFinish
+      dataFim: formatFinish,
     })
     
   }

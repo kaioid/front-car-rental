@@ -16,8 +16,6 @@ export class LoginService {
   jwtHelper: JwtHelperService = new JwtHelperService();
   usuarios: any;
 
-  vendedorId: number;
-
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
   constructor(private http: HttpClient, private router: Router, private crudService: CrudService) { }
@@ -48,7 +46,7 @@ export class LoginService {
     this.usuarios = this.crudService.getList('vendedores').subscribe(data=>{
       for(let usuario of data){
         if(usuario['email']==this.getUsuarioLogado()){
-          this.vendedorId=usuario['id'];
+          localStorage.setItem("vendedor_id", usuario['id']);
         }
       }
     })
