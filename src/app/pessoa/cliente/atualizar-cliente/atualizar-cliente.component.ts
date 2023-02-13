@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
 import { ConsultaCepService } from '../../consulta-cep.service';
@@ -16,7 +16,7 @@ export class AtualizarClienteComponent implements OnInit {
   cliente: any;
   atualizarClienteForm: FormGroup; 
 
-  constructor(private crudService: HttpCrudService, private cepService: ConsultaCepService, private formBuilder: FormBuilder, private route: ActivatedRoute) { }
+  constructor(private crudService: HttpCrudService, private cepService: ConsultaCepService, private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -78,6 +78,11 @@ export class AtualizarClienteComponent implements OnInit {
 
   atualizar(){
     this.clienteUptade();
+    this.gotoList();
+  }
+  
+  gotoList(){
+    this.router.navigate(['clientes']);
   }
 
 

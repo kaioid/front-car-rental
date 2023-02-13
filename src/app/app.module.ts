@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,7 @@ const maskConfig: Partial<IConfig> = {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ const maskConfig: Partial<IConfig> = {
     PessoaModule,
     VeiculoModule,
     LocacaoModule,
-    FaturaModule
+    FaturaModule,
+    RouterModule
   ],
   providers: [
     {

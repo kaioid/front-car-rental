@@ -11,6 +11,7 @@ import { NovoClienteComponent } from './pessoa/cliente/novo-cliente/novo-cliente
 import { AuthGuard } from './shared/auth.guard';
 import { LoginComponent } from './shared/login/login.component';
 import { AtualizarVeiculoComponent } from './veiculo/atualizar-veiculo/atualizar-veiculo.component';
+import { DetalhesVeiculoComponent } from './veiculo/detalhes-veiculo/detalhes-veiculo.component';
 import { ListaVeiculoComponent } from './veiculo/lista-veiculo/lista-veiculo.component';
 import { NovoVeiculoComponent } from './veiculo/novo-veiculo/novo-veiculo.component';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: '', children: [
     { path: 'veiculos', component: ListaVeiculoComponent },
     { path: 'veiculos/add', component: NovoVeiculoComponent },
+    { path: 'veiculos/:id', component: DetalhesVeiculoComponent },
     { path: 'veiculos/update/:id', component: AtualizarVeiculoComponent },
     { path: 'clientes', component: ListaClienteComponent },
     { path: 'clientes/add', component: NovoClienteComponent },

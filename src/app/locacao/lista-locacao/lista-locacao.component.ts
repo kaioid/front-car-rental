@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/shared/auth.service';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
 @Component({
@@ -14,11 +15,13 @@ export class ListaLocacaoComponent implements OnInit {
   fechadas: Observable<Object[]>;
   veiculos: Observable<Object[]>;
   vendedores: Observable<Object[]>;
+  role: string;
 
-  constructor(private crudService: HttpCrudService, private router: Router) { }
+  constructor(private crudService: HttpCrudService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.reloadData();
+    this.role = this.authService.getUsuarioTipo();
   }
 
   reloadData(){

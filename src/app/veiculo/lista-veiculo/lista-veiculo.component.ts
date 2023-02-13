@@ -27,4 +27,7 @@ export class ListaVeiculoComponent implements OnInit {
     this.modoExibicao = true;
   }
 
+  detalhes(){
+    
+  }
 }
