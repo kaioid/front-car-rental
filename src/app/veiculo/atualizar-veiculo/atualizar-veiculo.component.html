@@ -1,0 +1,65 @@
+<h3>Editando {{veiculo.modelo}}</h3>
+<hr>
+<div>
+  <form autocomplete="off" [formGroup]="atualizarVeiculoForm" (ngSubmit)="atualizar()">
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="modelo" class="form-label">Modelo: *</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="modelo" 
+        formControlName="modelo"
+        placeholder="ex: Corolla XEI"
+        >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="categoria" class="form-label">Categoria: *</label>
+        <select class="form-select" 
+        id="categoria" 
+        formControlName="categoria">
+          <option value="HATCH">Hatch</option>
+          <option value="SEDAN">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="CAMINHONETE">Caminhonete</option>
+          <option value="LUXO">Luxo</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <label class="form-label" for="precoPorDia">Valor diária:</label>
+        <div class="input-group">
+          <span class="input-group-text">R$</span>
+          <input 
+          type="number" 
+          class="form-control"         
+          id="precoPorDia"
+          formControlName="precoPorDia" 
+          placeholder="0"
+          >
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label" for="precoPorHora">Valor por hora:</label>
+        <div class="input-group">
+          <span class="input-group-text">R$</span>
+          <input 
+          type="number" 
+          class="form-control" 
+          id="precoPorHora"
+          formControlName="precoPorHora" 
+          placeholder="0"
+          >
+        </div>
+      </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success">Concluir</button>
+  </form>
+</div>
+
+

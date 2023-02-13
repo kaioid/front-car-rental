@@ -1,0 +1,19 @@
+<h3>Locar carro</h3>
+<hr>
+{{atualizarLocacaoForm.value|json}}
+<div>
+  <form [formGroup]="atualizarLocacaoForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="dataInicio" class="form-label">Data de locação: </label>
+        <input type="datetime-local" class="form-control" id="dataInicio" formControlName="dataInicio">
+      </div>
+      <div class="col-md-3">
+        <label for="dataFim" class="form-label">Data de devolução prevista: </label>
+        <input type="datetime-local" class="form-control" id="dataFim" formControlName="dataFim">
+      </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success" (click)="dateFormat()">Concluir</button>
+  </form>
+</div>

@@ -1,27 +1,19 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarCreateComponent } from './components/veiculo/car-create/car-create.component';
-import { CarDetailsComponent } from './components/veiculo/car-details/car-details.component';
-import { CarListComponent } from './components/veiculo/car-list/car-list.component';
-import { CarUpdateComponent } from './components/veiculo/car-update/car-update.component';
-import { ClientCreateComponent } from './components/cliente/client-create/client-create.component';
-import { ClientDetailsComponent } from './components/cliente/client-details/client-details.component';
-import { ClientListComponent } from './components/cliente/client-list/client-list.component';
-import { ClientUpdateComponent } from './components/cliente/client-update/client-update.component';
-import { RentalListComponent } from './components/locacao/rental-list/rental-list.component';
-import { RentalCreateComponent } from './components/locacao/rental-create/rental-create.component';
-import { RentalUpdateComponent } from './components/locacao/rental-update/rental-update.component';
+import { FaturaModule } from './fatura/fatura.module';
+import { LocacaoModule } from './locacao/locacao.module';
+import { PessoaModule } from './pessoa/pessoa.module';
+import { SharedModule } from './shared/shared.module';
+import { TokenInterceptor } from './shared/token.interceptor';
+import { VeiculoModule } from './veiculo/veiculo.module';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask';
-import { InvoicePDFComponent } from './components/fatura-pdf/invoice-pdf.component';
-import { LoginComponent } from './components/login/login.component'
-import { TokenInterceptor } from './token.interceptor';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -30,27 +22,20 @@ const maskConfig: Partial<IConfig> = {
 @NgModule({
   declarations: [
     AppComponent,
-    CarListComponent,
-    CarCreateComponent,
-    CarUpdateComponent,
-    CarDetailsComponent,
-    ClientCreateComponent,
-    ClientUpdateComponent,
-    ClientDetailsComponent,
-    ClientListComponent,
-    RentalListComponent,
-    RentalCreateComponent,
-    RentalUpdateComponent,
-    InvoicePDFComponent,
-    LoginComponent,
-    NavbarComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     NgxMaskModule.forRoot(maskConfig),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
+    PessoaModule,
+    VeiculoModule,
+    LocacaoModule,
+    FaturaModule
   ],
   providers: [
     {

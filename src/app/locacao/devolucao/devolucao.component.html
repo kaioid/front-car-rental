@@ -1,0 +1,36 @@
+<h3>Editar locação</h3>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Carro</th>
+      <th>Data de Locação</th>
+      <th>Data de Devolução prevista</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{locacao.nomeCliente}}</td>
+      <td>{{veiculo.modelo}}</td>
+      <td>{{locacao.dataInicio}}</td>
+      <td>{{locacao.dataFim}}</td>
+    </tr>
+</table>
+<div >
+  <form [formGroup]="devolucaoForm" (ngSubmit)="devolver()">
+    <div class="row">
+      <div class="col-md-3">
+        <input [hidden]="true" type="number" class="form-control" id="vendedor" name="vendedor" [value]="vendedorId">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <input [hidden]="true" type="number" class="form-control" id="status" name="status" [value]="2">
+      </div>
+    </div>
+      <hr>
+      <button type="submit" class="btn btn-success" (click)="setStatus()">Confirmar</button> 
+    </form>
+  </div>
+

@@ -1,0 +1,61 @@
+{{novoClienteForm.value|json}}
+<form [formGroup]="novoClienteForm" (ngSubmit)="onSubmit()">
+    <div class="row g-6">
+        <div class="col-md-3">
+            <label for="cpf" class="form-label">CPF: *</label>
+            <input type="text" mask="000.000.000-00" class="form-control" id="cpf" formControlName="cpf">
+        </div>
+        <div class="col-md-6">
+            <label for="nome" class="form-label">Nome: *</label>
+            <input type="text" class="form-control" id="nome" formControlName="nome">
+        </div>
+        <div class="col-md-5">
+            <label for="email" class="form-label">E-mail: *</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="col-md-4">
+            <label for="senha" class="form-label">Senha: *</label>
+            <input type="password" class="form-control" id="senha" formControlName="senha">
+        </div>
+    </div>
+
+    <div class="row g-6">
+        <div class="col-md-3">
+            <label for="cep" class="form-label">CEP: *</label>
+            <input type="text" mask="00000-999" class="form-control" id="cep" formControlName="cep" (blur)="consultaCEP()">
+        </div>
+        <div class="col-md-6">
+            <label for="logradouro" class="form-label">Logradouro:</label>
+            <input type="text" class="form-control" id="logradouro" formControlName="logradouro">
+        </div>
+    </div>
+
+    <div class="row g-6">
+        <div class="col-md-1">
+            <label for="numero" class="form-label">Nº:</label>
+            <input type="text" class="form-control" id="numero" formControlName="numero">
+        </div>
+        <div class="col-md-5">
+          <label for="complemento" class="form-label">Complemento:</label>
+          <input type="text" class="form-control" id="complemento" formControlName="complemento">
+      </div>
+        <div class="col-md-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" formControlName="bairro">
+        </div>
+    </div>
+
+    <div class="row g-6">
+        <div class="col-md-7">
+            <label for="localidade" class="form-label">Localidade:</label>
+            <input type="text" class="form-control" id="localidade" formControlName="localidade">
+        </div>
+        <div class="col-md-2">
+            <label for="uf" class="form-label">UF:</label>
+            <input type="text" class="form-control" id="uf" formControlName="uf">
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </div>
+</form>

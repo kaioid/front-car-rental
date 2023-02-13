@@ -1,0 +1,37 @@
+<h3>Locar carro</h3>
+<hr>
+{{novaLocacaoForm.value|json}}
+<div>
+  <form [formGroup]="novaLocacaoForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="dataInicio" class="form-label">Data de locação: </label>
+        <input type="datetime-local" class="form-control" id="dataInicio" formControlName="dataInicio">
+      </div>
+      <div class="col-md-3">
+        <label for="dataFim" class="form-label">Data de devolução prevista: </label>
+        <input type="datetime-local" class="form-control" id="dataFim" formControlName="dataFim">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="cliente" class="form-label">Cliente:</label>
+        <select class="form-select" id="cliente" formControlName="cliente">
+          <option selected="">selecione um cliente</option>
+          <option *ngFor="let cliente of clienteDropdown | async" [ngValue]=cliente.id>{{cliente.nome}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="veiculo " class="form-label">Carro:</label>
+        <select class="form-select" id="veiculo" formControlName="veiculo">
+          <option selected="">selecione um veículo</option>
+          <option *ngFor="let veiculo of veiculoDropdown | async" [ngValue]=veiculo.id>{{veiculo.modelo}}</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success" (click)="dateFormat()">Concluir</button>
+  </form>
+</div>
