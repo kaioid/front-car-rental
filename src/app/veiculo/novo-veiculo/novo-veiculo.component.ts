@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class NovoVeiculoComponent implements OnInit {
 
   novoVeiculoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private crudService: HttpCrudService) { }
+  constructor(private formBuilder: FormBuilder, private crudService: HttpCrudService, private router: Router) { }
 
   ngOnInit(){
     this.novoVeiculoForm = this.formBuilder.group({
@@ -29,6 +30,11 @@ export class NovoVeiculoComponent implements OnInit {
 
   onSubmit(){
     this.save();
+    this.goToList();
+  }
+
+  goToList(){
+    this.router.navigate(['veiculos'])
   }
 
 }

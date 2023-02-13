@@ -18,13 +18,12 @@ const maskConfig: Partial<IConfig> = {
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
-    NgxMaskModule
+    NgxMaskModule.forRoot(maskConfig)
   ],
   exports: [
     NovoVeiculoComponent,
     AtualizarVeiculoComponent,
     ListaVeiculoComponent,
-    ReactiveFormsModule
   ]
 })
 export class VeiculoModule { }

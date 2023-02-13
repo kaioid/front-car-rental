@@ -11,7 +11,7 @@ import { HttpCrudService } from 'src/app/shared/http-crud.service';
 export class ListaVeiculoComponent implements OnInit {
 
   veiculos: Observable<Object[]>;
-  modoExibicao: boolean = false;
+  modoExibicao: boolean = true;
 
   constructor(private crudService: HttpCrudService, private router: Router) { }
 

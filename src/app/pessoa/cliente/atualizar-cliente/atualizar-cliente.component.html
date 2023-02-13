@@ -1,6 +1,9 @@
+<h3>Atualizando {{cliente.nome}}</h3>
+<hr>
+<div [formGroup]="atualizarClienteForm">
 <form [formGroup]="atualizarClienteForm" (ngSubmit)="atualizar()">
     <div class="row g-6">
-        <div class="col-md-3">
+        <div class="col-md-3" [formGroup]="atualizarClienteForm">
             <label for="cpf" class="form-label">CPF: *</label>
             <input type="text" mask="000.000.000-00" class="form-control" id="cpf" formControlName="cpf">
         </div>
@@ -18,7 +21,7 @@
         </div>
     </div>
 
-    <div class="row g-6" formGroupName="endereco">
+    <div class="row g-6">
         <div class="col-md-3">
             <label for="cep" class="form-label">CEP: *</label>
             <input type="text" mask="00000-999" class="form-control" id="cep" formControlName="cep" (blur)="consultaCEP()">
@@ -29,7 +32,7 @@
         </div>
     </div>
 
-    <div class="row g-6" formGroupName="endereco">
+    <div class="row g-6">
         <div class="col-md-1">
             <label for="numero" class="form-label">Nº:</label>
             <input type="text" class="form-control" id="numero" formControlName="numero">
@@ -44,7 +47,7 @@
         </div>
     </div>
 
-    <div class="row g-6" formGroupName="endereco">
+    <div class="row g-6">
         <div class="col-md-7">
             <label for="localidade" class="form-label">Localidade:</label>
             <input type="text" class="form-control" id="localidade" formControlName="localidade">
@@ -60,3 +63,4 @@
 </form>
 
 
+</div>

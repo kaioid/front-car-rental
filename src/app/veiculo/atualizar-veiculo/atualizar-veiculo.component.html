@@ -3,8 +3,8 @@
 <div>
   <form autocomplete="off" [formGroup]="atualizarVeiculoForm" (ngSubmit)="atualizar()">
 
-    <div class="row">
-      <div class="col-md-4">
+    <div class="row" [formGroup]="atualizarVeiculoForm">
+      <div class="col-md-4" [formGroup]="atualizarVeiculoForm">
         <label for="modelo" class="form-label">Modelo: *</label>
         <input 
         type="text" 

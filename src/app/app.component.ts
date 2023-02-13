@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from './service/login.service';
+import { AuthService } from './shared/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
 
   mostrarMenu: boolean = false;
 
-  constructor(private authService: LoginService){}
+  constructor(private authService: AuthService){}
 
   ngOnInit(){
     this.authService.mostrarMenuEmitter.subscribe(
