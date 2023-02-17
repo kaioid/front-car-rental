@@ -40,7 +40,7 @@ export class ListaLocacaoComponent implements OnInit {
   }
 
   updateRental(id: number){
-    this.router.navigate(['locacoes/update', id]);
+    this.router.navigate(['devolver/', id]);
   }
 
 }

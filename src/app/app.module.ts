@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { NgxPaginationModule } from 'ngx-pagination/dist/ngx-pagination.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ const maskConfig: Partial<IConfig> = {
     VeiculoModule,
     LocacaoModule,
     FaturaModule,
-    RouterModule
+    RouterModule,
+
   ],
   providers: [
     {

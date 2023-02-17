@@ -8,6 +8,9 @@ import { NovaLocacaoComponent } from './locacao/nova-locacao/nova-locacao.compon
 import { AtualizarClienteComponent } from './pessoa/cliente/atualizar-cliente/atualizar-cliente.component';
 import { ListaClienteComponent } from './pessoa/cliente/lista-cliente/lista-cliente.component';
 import { NovoClienteComponent } from './pessoa/cliente/novo-cliente/novo-cliente.component';
+import { AtualizarVendedorComponent } from './pessoa/vendedor/atualizar-vendedor/atualizar-vendedor.component';
+import { ListaVendedorComponent } from './pessoa/vendedor/lista-vendedor/lista-vendedor.component';
+import { NovoVendedorComponent } from './pessoa/vendedor/novo-vendedor/novo-vendedor.component';
 import { AuthGuard } from './shared/auth.guard';
 import { LoginComponent } from './shared/login/login.component';
 import { AtualizarVeiculoComponent } from './veiculo/atualizar-veiculo/atualizar-veiculo.component';
@@ -21,14 +24,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', children: [
     { path: 'veiculos', component: ListaVeiculoComponent },
-    { path: 'veiculos/add', component: NovoVeiculoComponent },
+    { path: 'veiculos/cadastrar', component: NovoVeiculoComponent },
     { path: 'veiculos/:id', component: DetalhesVeiculoComponent },
-    { path: 'veiculos/update/:id', component: AtualizarVeiculoComponent },
+    { path: 'veiculos/atualizar/:id', component: AtualizarVeiculoComponent },
     { path: 'clientes', component: ListaClienteComponent },
-    { path: 'clientes/add', component: NovoClienteComponent },
-    { path: 'clientes/update/:id', component: AtualizarClienteComponent },
+    { path: 'clientes/atualizar/:id', component: AtualizarClienteComponent },
+    { path: 'vendedores', component: ListaVendedorComponent },
+    { path: 'vendedores/cadastrar', component: NovoVendedorComponent },
+    { path: 'vendedores/atualizar/:id', component: AtualizarVendedorComponent },
     { path: 'locacoes', component: ListaLocacaoComponent },
-    { path: 'locacoes/add', component: NovaLocacaoComponent},
+    { path: 'locacoes/cadastrar', component: NovaLocacaoComponent},
     { path: 'devolver/:id', component: DevolucaoComponent },
     { path: 'locacoes/:id/fatura', component: PdfFaturaComponent }
 

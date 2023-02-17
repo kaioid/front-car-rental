@@ -1,7 +1,6 @@
-<h3>Adicionar novo carro</h3>
-<hr>
+<h4>Adicionar novo carro</h4>
 <div>
-  <form autocomplete="off" [formGroup]="novoVeiculoForm" (ngSubmit)="onSubmit()">
+  <form autocomplete="off" [formGroup]="novoVeiculoForm" (ngSubmit)="onSubmit()" style="padding-left: 1rem;">
 
     <div class="row">
       <div class="col-md-4">
@@ -57,8 +56,7 @@
         </div>
       </div>
     </div>
-    <hr>
-    <button type="submit" class="btn btn-success">Concluir</button>
+    <button type="submit" class="btn btn-success" style="margin-top: 5px; margin-bottom: 5px;">Concluir</button>
   </form>
 </div>
 

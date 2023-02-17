@@ -1,14 +1,9 @@
 <div class="panel panel-primary">
-  <app-novo-cliente [hidden]="role!='ADMIN'"></app-novo-cliente>
     <div class="panel-heading">
-      <hr>
-      <h4>
-        Lista de Clientes
-      </h4>
+      <h4>Lista de vendedores</h4>
     </div>
-    
     <div class="panel-body">
-      <table class="table table-striped" *ngIf="clientes">
+      <table class="table table-striped" *ngIf="vendedores | async">
         <thead>
           <tr>
             <th>Nome</th>
@@ -17,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientes | paginate: {id: 'foo',itemsPerPage: 3, currentPage: page, totalItems: totalRecords}">
+          <tr *ngFor="let cliente of vendedores | async">
             <td>{{cliente.nome}}</td>
             <td>{{cliente.cpf | mask: '000.000.000-00'}}</td>
             <td [hidden]="role!='ADMIN'">
@@ -26,8 +21,7 @@
             </td>
           </tr>
         </tbody>
-        <pagination-controls id="foo" maxSize="3" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
       </table>
-      
     </div>
   </div>
+

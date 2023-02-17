@@ -7,6 +7,10 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AtualizarClienteComponent } from './cliente/atualizar-cliente/atualizar-cliente.component';
 import { ListaClienteComponent } from './cliente/lista-cliente/lista-cliente.component';
 import { NovoClienteComponent } from './cliente/novo-cliente/novo-cliente.component';
+import { NovoVendedorComponent } from './vendedor/novo-vendedor/novo-vendedor.component';
+import { ListaVendedorComponent } from './vendedor/lista-vendedor/lista-vendedor.component';
+import { AtualizarVendedorComponent } from './vendedor/atualizar-vendedor/atualizar-vendedor.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -14,18 +18,22 @@ const maskConfig: Partial<IConfig> = {
 };
 
 @NgModule({
-  declarations: [NovoClienteComponent, AtualizarClienteComponent, ListaClienteComponent],
+  declarations: [NovoClienteComponent, AtualizarClienteComponent, ListaClienteComponent, NovoVendedorComponent, ListaVendedorComponent, AtualizarVendedorComponent],
   imports: [
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot(maskConfig)
+    NgxMaskModule.forRoot(maskConfig),
+    NgxPaginationModule
   ],
   exports: [
     NovoClienteComponent,
     AtualizarClienteComponent,
     ListaClienteComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NovoVendedorComponent,
+    AtualizarVendedorComponent,
+    ListaVendedorComponent
   ]
 })
 export class PessoaModule { }

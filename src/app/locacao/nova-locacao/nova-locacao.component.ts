@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
@@ -14,7 +15,7 @@ export class NovaLocacaoComponent implements OnInit {
   clienteDropdown: Observable<Object[]>;
   veiculoDropdown: Observable<Object[]>;
 
-  constructor(private formBuilder: FormBuilder, private crudService: HttpCrudService) { }
+  constructor(private formBuilder: FormBuilder, private crudService: HttpCrudService, private router: Router) { }
 
   ngOnInit(){
     this.clienteDropdown = this.crudService.getList('clientes');
@@ -40,6 +41,7 @@ export class NovaLocacaoComponent implements OnInit {
 
   onSubmit(){
     this.save();
+    this.gotoList();
   }
 
   dateFormat(){
@@ -53,6 +55,10 @@ export class NovaLocacaoComponent implements OnInit {
       dataInicio: dataInicioFormat,
       dataFim: dataFimFormat
     })
+  }
+
+  gotoList(){
+    this.router.navigate(['locacoes']);
   }
 
 }

@@ -1,7 +1,6 @@
-<h3>Locar carro</h3>
-<hr>
+<h4>Locar carro</h4>
 <div>
-  <form [formGroup]="novaLocacaoForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="novaLocacaoForm" (ngSubmit)="onSubmit()" style="padding-left: 2rem;">
     <div class="row">
       <div class="col-md-3">
         <label for="dataInicio" class="form-label">Data de locação: </label>
@@ -30,7 +29,6 @@
         </select>
       </div>
     </div>
-    <hr>
-    <button type="submit" class="btn btn-success" (click)="dateFormat()">Concluir</button>
+    <button type="submit" class="btn btn-success" (click)="dateFormat()" style="margin-top: 5px; margin-bottom: 5px;">Concluir</button>
   </form>
 </div>

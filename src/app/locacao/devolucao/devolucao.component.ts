@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class DevolucaoComponent implements OnInit {
   veiculo: any
   devolucaoForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private crudService: HttpCrudService) { }
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private crudService: HttpCrudService, private router: Router) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -44,12 +44,17 @@ export class DevolucaoComponent implements OnInit {
 
   devolver(){
     this.crudService.update(this.id, this.devolucaoForm.value, 'locacoes').subscribe(data=>{})
+    this.gotoList();
   }
 
   setStatus(){
     this.devolucaoForm.patchValue({
       status: 2
     })
+  }
+
+  gotoList(){
+    this.router.navigate(['locacoes'])
   }
 
 }

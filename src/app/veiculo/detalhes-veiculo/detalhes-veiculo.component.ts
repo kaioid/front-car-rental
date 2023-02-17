@@ -30,7 +30,7 @@ export class DetalhesVeiculoComponent implements OnInit {
   }
 
   update(){
-    this.router.navigate([`veiculos/update/${this.id}`]);
+    this.router.navigate([`veiculos/atualizar/${this.id}`]);
   }
 
   goToList(){

@@ -1,13 +1,24 @@
-h3 {
+h4 {
     text-align: center;
+    padding-top: 15px;
     padding-bottom: 15px;
+    background-color: bisque;
 }
 
 table {
     text-align: center;
+    background-color: bisque;
 }
 
+form {
+    background-color: bisque;
+    padding-left: 11rem;
+}
 
 .card {
-    margin-top: 25px;
+    margin-top: 10px;
+}
+
+.card-body {
+    background-color: azure;
 }
