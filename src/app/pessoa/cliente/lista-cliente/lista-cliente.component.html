@@ -5,10 +5,18 @@
       <h4>
         Lista de Clientes
       </h4>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <form class="d-flex" role="search" [formGroup]="queryField">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" formControlName="busca">
+            <button class="btn btn-outline-success" type="submit" (click)="buscar()" [hidden]="queryTouched==true" [disabled]="!queryField.valid">Buscar</button>
+            <button class="btn btn-outline-info" type="submit" (click)="resetarQuery()" [hidden]="queryTouched==false">Resetar</button>
+          </form>
+        </div>
+      </nav>
     </div>
-    
     <div class="panel-body">
-      <table class="table table-striped" *ngIf="clientes">
+      <table class="table table-striped" *ngIf="clientes" [hidden]="queryTouched==true">
         <thead>
           <tr>
             <th>Nome</th>
@@ -17,7 +25,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientes | paginate: {id: 'foo',itemsPerPage: 3, currentPage: page, totalItems: totalRecords}">
+          <tr *ngFor="let cliente of clientes | paginate: {id: 'pag',itemsPerPage: 3, currentPage: page, totalItems: totalRecords}">
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf | mask: '000.000.000-00'}}</td>
+            <td [hidden]="role!='ADMIN'">
+              <button (click)="update(cliente.id)" class="btn btn-primary">Editar</button>
+              <button (click)="delete(cliente.id)" class="btn btn-danger" style="margin-left: 5px;">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+        <pagination-controls id="pag" maxSize="3" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+
+      </table>
+      <table class="table table-striped" *ngIf="clientes" [hidden]="queryTouched==false">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th [hidden]="role!='ADMIN'">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientesQuery | paginate: {id: 'foo',itemsPerPage: 3, currentPage: page, totalItems: clienteQuerySize}">
             <td>{{cliente.nome}}</td>
             <td>{{cliente.cpf | mask: '000.000.000-00'}}</td>
             <td [hidden]="role!='ADMIN'">

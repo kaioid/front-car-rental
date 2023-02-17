@@ -1,7 +1,7 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { interval, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import { AuthService } from 'src/app/shared/auth.service';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
@@ -18,10 +18,15 @@ export class ListaClienteComponent implements OnInit {
   data: Array<any>;
   totalRecords: number;
   page: number = 1;
+  queryField: FormGroup;
+  queryTouched: boolean = false;
+  clientesQuery = []
+  clienteQuerySize: number;
 
-  constructor(private crudService: HttpCrudService, private router: Router, private authService: AuthService) { }
+  constructor(private crudService: HttpCrudService, private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.queryField = this.formBuilder.group({busca: ['', [Validators.required]]})
     this.role = this.authService.getUsuarioTipo();
     this.reloadData();
   }
@@ -50,6 +55,24 @@ export class ListaClienteComponent implements OnInit {
 
   gotoList(){
     this.router.navigate(['clientes'])
+  }
+
+  buscar(){
+    if(this.queryField.value!=''){
+      for(let cliente of this.clientes){
+        if(cliente['cpf']==this.queryField.get('busca').value || 
+        cliente['nome'].toUpperCase()==this.queryField.get('busca').value.toUpperCase() ||
+        cliente['nome'].toUpperCase().startsWith(this.queryField.get('busca').value.toUpperCase())){
+          this.clientesQuery.push(cliente);
+        }
+      }
+    }
+    this.clienteQuerySize = this.clientesQuery.length
+    this.queryTouched = true;
+
+  }
+  resetarQuery(){
+    window.location.reload();
   }
 
 
