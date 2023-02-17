@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/shared/auth.service';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
+import { ConsultaPessoaService } from '../../consulta-pessoa.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ListaClienteComponent implements OnInit {
   clientesQuery = []
   clienteQuerySize: number;
 
-  constructor(private crudService: HttpCrudService, private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
+  constructor(private crudService: HttpCrudService, private router: Router, private authService: AuthService, private formBuilder: FormBuilder, private consultaPessoa: ConsultaPessoaService) { }
 
   ngOnInit() {
     this.queryField = this.formBuilder.group({busca: ['', [Validators.required]]})
@@ -57,22 +58,13 @@ export class ListaClienteComponent implements OnInit {
     this.router.navigate(['clientes'])
   }
 
-  buscar(){
-    if(this.queryField.value!=''){
-      for(let cliente of this.clientes){
-        if(cliente['cpf']==this.queryField.get('busca').value || 
-        cliente['nome'].toUpperCase()==this.queryField.get('busca').value.toUpperCase() ||
-        cliente['nome'].toUpperCase().startsWith(this.queryField.get('busca').value.toUpperCase())){
-          this.clientesQuery.push(cliente);
-        }
-      }
-    }
-    this.clienteQuerySize = this.clientesQuery.length
-    this.queryTouched = true;
-
-  }
   resetarQuery(){
     window.location.reload();
+  }
+
+  buscar(){
+    this.clientesQuery = this.consultaPessoa.getClienteQuery('clientes', this.queryField.get('busca').value.toUpperCase())
+    this.queryTouched = true;
   }
 
 
