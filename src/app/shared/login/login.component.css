@@ -1,7 +1,14 @@
 #form1{
     padding: 3rem;
-    max-width: 30rem;
-    margin-left: 25rem;
+    max-width: 100rem;
+}
+
+#form1 input{
+    max-width: 20rem;
+}
+
+#form1 input, label, button{
+    margin-left: 29rem;
 }
 
 
