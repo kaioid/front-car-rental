@@ -8,8 +8,9 @@ import { DevolucaoComponent } from './devolucao/devolucao.component';
 
 
 
+
 @NgModule({
-  declarations: [NovaLocacaoComponent, ListaLocacaoComponent, AtualizarLocacaoComponent, DevolucaoComponent],
+  declarations: [NovaLocacaoComponent, ListaLocacaoComponent, AtualizarLocacaoComponent, DevolucaoComponent,],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -19,7 +19,6 @@ export class ConsultaPessoaService {
         }
       }
     })
-    return query
-    
+    return query;
   }
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpCrudService } from 'src/app/shared/http-crud.service';
 
 import { ConsultaCepService } from '../../consulta-cep.service';
+import { ConsultaPessoaService } from '../../consulta-pessoa.service';
+import { Validacoes } from '../../validacoes';
 
 @Component({
   selector: 'app-novo-cliente',
@@ -14,18 +16,24 @@ export class NovoClienteComponent implements OnInit {
 
   novoClienteForm: FormGroup; 
 
-  constructor(private crudService: HttpCrudService, private cepService: ConsultaCepService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private crudService: HttpCrudService, private cepService: ConsultaCepService, private formBuilder: FormBuilder, private router: Router, private consultaPessoa: ConsultaPessoaService) { }
 
   ngOnInit() {
 
     this.novoClienteForm = this.formBuilder.group({
-      cpf: [null],
-      nome: [null],
-      email: [null],
-      senha: [null],
-      cep: [null],
+      cpf: [null, [Validators.required, Validacoes.validaCpf]],
+      nome: [null,
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      email: [null, [Validators.email, Validators.required]],
+      senha: [null, [Validators.required]],
+      cep: [null, [Validators.required, Validacoes.validaCep]],
       logradouro: [null],
-      numero: [null],
+      numero: [null, [Validators.required]],
       bairro: [null],
       complemento: [null],
       localidade: [null],
@@ -66,12 +74,12 @@ export class NovoClienteComponent implements OnInit {
   }
 
   save(){
-    this.crudService.create(this.novoClienteForm.value,'clientes').subscribe(data=>{console.log(data)});
+    this.crudService.create(this.novoClienteForm.value, 'clientes').subscribe()
   }
 
   onSubmit(){
     this.save();
-    this.goToList();
+    window.location.reload();
   }
 
   goToList(){

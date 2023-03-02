@@ -36,7 +36,7 @@ export class NovaLocacaoComponent implements OnInit {
 
   save(){
     this.crudService.create(this.novaLocacaoForm.value, 'locacoes')
-    .subscribe(locacao=>{})
+    .subscribe()
   }
 
   onSubmit(){
@@ -50,10 +50,12 @@ export class NovaLocacaoComponent implements OnInit {
     
     const dataInicioFormat = new Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(dataInicio);
     const dataFimFormat = Intl.DateTimeFormat('pt-br', {day:'2-digit', month:'2-digit', year:'numeric', hour: 'numeric', minute: 'numeric'}).format(dataFim);
+    const data1 = dataInicioFormat.replace(/,/, "");
+    const data2 = dataFimFormat.replace(/,/, "");
 
     this.novaLocacaoForm.patchValue({
-      dataInicio: dataInicioFormat,
-      dataFim: dataFimFormat
+      dataInicio: data1,
+      dataFim: data2
     })
   }
 

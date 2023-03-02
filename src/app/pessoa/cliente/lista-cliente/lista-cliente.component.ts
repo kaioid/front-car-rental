@@ -46,17 +46,13 @@ export class ListaClienteComponent implements OnInit {
 
   delete(id: number){
     this.crudService.delete(id, 'clientes').subscribe(cliente=>{});
-    this.ngOnInit();
-    this.gotoList();
+    window.location.reload();
   }
 
   update(id: number){
     this.router.navigate([`clientes/atualizar/${id}`]);
   }
 
-  gotoList(){
-    this.router.navigate(['clientes'])
-  }
 
   resetarQuery(){
     window.location.reload();
